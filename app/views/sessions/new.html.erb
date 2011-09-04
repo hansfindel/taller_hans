@@ -1,0 +1,77 @@
+<h1>Log in</h1>
+
+<%= form_tag sessions_path,  :id=>"session_form" do %>
+	<p>
+	  <%= label_tag :mail, "Rut, mail or username" %>
+	  <%= text_field_tag :mail, params[:mail] %> 
+	 <span class="mail"></span> <span class="aviso_mail"></span>
+	</p>
+	<p>
+	  <%= label_tag :password %>
+	  <%= password_field_tag :password, params[:pass] %> 
+	  <span class="pass"></span> <span class="aviso_pass"></span>
+	</p>
+	
+	<p><%= link_to "forgotten password?", new_password_reset_path %></p>
+	<p class="button"> <%= submit_tag "sign in",  :onclick => "return validar()"  %></p>
+<% end %>
+
+
+<script type="text/javascript">
+$(document).ready(function(){
+
+function validar(){
+	var mail=validaUser();
+	var pass=validaPass();
+	if(mail && pass){
+		return true;
+	}
+	return false;
+};
+
+function validaUser() {
+	var valid = true;
+	var val = $('input#mail').val();
+  if (val == ''){
+  	$('span.mail').text("HEY!!").show().fadeOut(2000);
+  	$('span.aviso_mail').text(" *Este campo es requerido").show().fadeOut(5000);
+  	valid=false;  	
+  }
+	return valid;
+};
+
+function validaPass() {
+	var valid = true;
+	var val = $('input#password').val();
+	var texto =''
+  if (val == ''){
+    texto=" *Este campo es requerido";  	
+  }
+  else if (val.length<4){
+  	texto=" *Los passwords tienen más de 4 letras";  	
+  }
+  else if (val.length>16){
+  	texto=" *Los passwords tienen menos de 16 letras";	
+  }
+  if (texto != ''){
+  	$('span.pass').text("HEY!!").show().fadeOut(2000);
+  	$('span.aviso_pass').text(texto).show().fadeOut(5000);
+  	valid=false;  	
+  }
+	return valid;
+};
+
+$('#mail').blur(function() {
+  validaUser(); 
+});
+
+$('#password').blur(function() {
+  validaPass(); 
+});
+
+ $("form#session_form").submit(function() {
+   return validar();
+ });
+
+});
+</script>

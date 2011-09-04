@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  rut: 1
+  username: MyString
+  password_hash: MyString
+  password_salt: MyString
+  email: MyString
+  type_id: 1
+
+two:
+  rut: 1
+  username: MyString
+  password_hash: MyString
+  password_salt: MyString
+  email: MyString
+  type_id: 1

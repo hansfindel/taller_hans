@@ -1,0 +1,52 @@
+class ApplicationController < ActionController::Base
+  protect_from_forgery
+   helper_method :current_user, :current_user_name, :authorize_post
+  rescue_from CanCan::AccessDenied do |exception|
+    redirect_to root_url, :alert => exception.message
+  end
+  #check_authorization
+  private
+  
+  def current_user
+  	if session[:user_id]!=nil && session[:last_use] > 30.minute.ago
+  	  @current_user ||= User.find(session[:user_id]) 
+  	  session[:last_use]=Time.now
+  	else
+  		end_session
+  	end
+  end
+  
+  def current_user_name
+  	@current_user_name ||= @current_user.username ? @current_user.username : "stranger"
+  end
+  
+  def authorize_post
+  	if session[:session_token]
+	  	@session_auth = session[:session_token]== @current_user.session_token ? true : false
+	  	if @session_auth && session[:last_use] > 30.minute.ago
+	  		end_session
+	  	end
+	  	@session_auth	
+	else
+		return false
+	end  	
+  end
+  
+  def end_session
+  	watch_fake_attempt
+  	session[:user_id]=nil
+  	session[:session_token]=nil
+  	session[:last_use]=nil
+  end	
+  
+  def watch_fake_attempt
+  	if session[:user_id] 
+  		user=User.find(session[:user_id])
+  		if session[:session_token]== user.session_token
+  		  user.session_token = BCrypt::Engine.generate_salt
+  		  user.save
+  		end
+  	end
+  end	
+  
+end
