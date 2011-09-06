@@ -1,13 +1,15 @@
 Proyecto de iic2515_2011-2
 Creador: Hans
 
-version 0.1
-subir a produccion
+version 0.0.1
+*subido a produccion
 
 nuevo:
 *version online
 
 mejoras:
-*ya no se corrige vía javascript el dígito verificador (para que no inventen tantos rut's) 
+*ya no se corrige vía javascript el dígito verificador (para que no inventen tantos rut'rut 
+
 
 correcciones:
+*por hacer arreglar bugs -> mientras no lestaba subiendo estaba probando algunas cosas..lo cual hace que tenga un par de cosas por arreglar

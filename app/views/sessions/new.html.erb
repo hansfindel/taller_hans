@@ -11,8 +11,9 @@
 	  <%= password_field_tag :password, params[:pass] %> 
 	  <span class="pass"></span> <span class="aviso_pass"></span>
 	</p>
-	
+	<% if false %>	
 	<p><%= link_to "forgotten password?", new_password_reset_path %></p>
+	<% end %>
 	<p class="button"> <%= submit_tag "sign in",  :onclick => "return validar()"  %></p>
 <% end %>
 

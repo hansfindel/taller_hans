@@ -1,5 +1,7 @@
 <!DOCTYPE html>
 <html>
+<metatag version=0.0.1 >
+
 <head>
   <title>TallerHans</title>
   <%= stylesheet_link_tag    "application" %>
@@ -10,7 +12,7 @@
 <div id="container">
 <div id="user_nav">
   <% if current_user %>
-  	Logged in as <%= current_user_name %> | 
+  	Logged in as <%= link_to current_user_name, current_user %> | 
   	<%= link_to "Log out", logout_path%>
   <% else %>
     <%= link_to "Register", sign_up_path%>

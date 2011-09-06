@@ -8,11 +8,11 @@ class ApplicationController < ActionController::Base
   private
   
   def current_user
-  	if session[:user_id]!=nil && session[:last_use] > 30.minute.ago
+  	if session[:user_id]!=nil && session[:last_use]!=nil && session[:last_use] > 30.minute.ago
   	  @current_user ||= User.find(session[:user_id]) 
   	  session[:last_use]=Time.now
   	else
-  		end_session
+  	  end_session
   	end
   end
   

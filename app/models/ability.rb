@@ -11,8 +11,10 @@ class Ability
 		can :read, :all
 	else
 		can :read, :all
-		cannot :manage, :users
+		#cannot :ma, :users
 		can :read, :session, :user_id => user.id
+		can :manage, User
+		
 		#can :update,:comment if self!
 	end  	
   	

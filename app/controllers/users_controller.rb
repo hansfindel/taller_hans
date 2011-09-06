@@ -1,6 +1,7 @@
 class UsersController < ApplicationController
-	load_and_authorize_resource
-  # GET /users
+  load_and_authorize_resource
+  
+# GET /users
   # GET /users.json
   def index
     @users = User.all
@@ -15,7 +16,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
-
+    
     respond_to do |format|
       format.html # show.html.erb
       format.json { render :json => @user }
@@ -43,10 +44,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(params[:user])
 
-  	session[:user_id] = user.id
-  	session[:last_use]=Time.now
+  	session[:user_id] = @user.id
+  	session[:last_use] = Time.now
   	session[:session_token] = BCrypt::Engine.generate_salt
-  	user.session_token = session[:session_token]
+  	@user.session_token = session[:session_token]
 
     respond_to do |format|
       if @user.save

@@ -18,7 +18,11 @@
     <td><%= user.rut %></td>
     <td><%= user.username %></td>    
     <td><%= user.email %></td>
-    <td><%= user.type.type_name %></td>
+    <% if user.type %>
+     <td><%= user.type.type_name %></td>
+    <% else %>
+     <td> Omitido </td>
+    <% end %>
     <td><%= user.password_hash %></td>
     <td><%= user.password_salt %></td>
     <td><%= link_to 'Show', user %></td>
