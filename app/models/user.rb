@@ -2,6 +2,12 @@ class User < ActiveRecord::Base
 	belongs_to :type
 	has_many :login_failures
 	
+	has_many :alumns
+	has_many :courses, :through => :alumns
+	
+	has_many :profesors
+	has_many :courses, :through => :profesors
+	
 	attr_accessible :username, :email, :password, :password_confirmation, :rut, :type_id, :verificador
 	attr_accessor :password, :verificador
 	before_save :encrypt_password
@@ -117,7 +123,11 @@ class User < ActiveRecord::Base
       end
     end
   end
- 	
+ 
+  def self.digv(rut)
+  	dv(rut)
+  end	
+  
   def send_password_reset
     generate_token(:password_reset_token)
     self.password_reset_sent_at = Time.zone.now
@@ -130,5 +140,13 @@ class User < ActiveRecord::Base
       self[column] = SecureRandom.urlsafe_base64
     end while User.exists?(column => self[column])
   end
+  
+  def self.search(search)
+  	if search
+  		where('username Like ?', "%#{search}%")
+  	else
+  		scoped
+  	end
+  end 
   
 end

@@ -1,5 +1,12 @@
 <p id="notice"><%= notice %></p>
 
+<% if can? :create, Course %>
+<p>
+  <b>Id:</b>
+  <%= @user.id %>
+</p>
+<% end %>
+
 <p>
   <b>Rut:</b>
   <%= @user.rut %>
@@ -10,6 +17,7 @@
   <%= @user.username %>
 </p>
 
+<% if can? :create, Course %>
 <p>
   <b>Password hash:</b>
   <%= @user.password_hash %>
@@ -19,6 +27,7 @@
   <b>Password salt:</b>
   <%= @user.password_salt %>
 </p>
+<% end %>
 
 <p>
   <b>Email:</b>
@@ -30,6 +39,21 @@
   <%= @user.type_id %>
 </p>
 
-
+<% if can? :update, @user %>
 <%= link_to 'Edit', edit_user_path(@user) %> |
+<% end %>
 <%= link_to 'Back', users_path %>
+
+
+<h1>Other info </h1>
+
+<p>Cursos:</p>
+<ul>
+  <% @cursos.each do |c| %>
+  	<li> <%= c.curso %> <%= c.agno %> </li>
+  <% end %>
+</ul>
+
+
+
+

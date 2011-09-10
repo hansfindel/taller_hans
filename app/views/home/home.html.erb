@@ -1,2 +1,13 @@
 <h1>Casa</h1>
-<p>Mine mine mine</p>
+<p>A esta página solo puedes acceder cuando estás conectado</p>
+
+<% if can? :create, Course  %>
+	<%= link_to "add course", courses_path %><br/>
+	<%= link_to "add profesor to a course", profesors_path %> <br/>
+	<%= link_to "add alumn to a course", alumns_path %> <br/>
+<% end %>
+
+<% if can? :read, Course  %>
+	<%= link_to "cursos", courses_path %><br/>
+	<%= link_to "alumnos", users_path %><br/>
+<% end %>

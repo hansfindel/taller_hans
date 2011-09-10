@@ -5,15 +5,31 @@ class Ability
   	
 
 	type=Type.find(user.type_id) if user
+	id=user.id if user
 	user ||= User.new
 		
-	if type && type.type_name == 'Profesor'
-		can :read, :all
+	if user.username && user.username.eql?("admin")
+		can :manage, :all
+		can :create, Profesor
+	
+		
+	elsif type && type.type_name == 'Profesor'
+		
+		can :manage, User, :id => user.id
+		can [:read, :index], [User, @users]
+		
+		can :read, Course do |c| 
+			c.profesors.where(:user_id => user.id)
+		end
+		
+		cannot [:update, :create], [@profesor, @alumn, @course]
+		
 	else
-		can :read, :all
+		#can :read, :all
 		#cannot :ma, :users
-		can :read, :session, :user_id => user.id
-		can :manage, User
+
+		can [:read, :update], @user, :id => user.id
+		cannot [:read, :update, :create], [Profesor, Alumn, Course]
 		
 		#can :update,:comment if self!
 	end  	

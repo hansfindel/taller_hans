@@ -1,4 +1,6 @@
 TallerHans::Application.routes.draw do
+  
+
   get "home/index"
   get "home/home"
   get "sessions/new"
@@ -7,12 +9,18 @@ TallerHans::Application.routes.draw do
   resources :users
   resources :sessions
   resources :password_resets
+  resources :alumns
+  resources :profesors
+  resources :courses
+
 
   root :to => "home#index"
   get "home" => "home#home", :as => "home"
   get "sign_up" => "users#new", :as => "sign_up"
   get "log_in" => "sessions#new", :as => 'login'	
   get "log_out" => "sessions#destroy", :as => 'logout'
+
+  get "lista/users" => "users#lista", :as => 'lista'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

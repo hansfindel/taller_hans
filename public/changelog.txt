@@ -1,6 +1,23 @@
 Proyecto de iic2515_2011-2
 Creador: Hans
 
+version 0.0.2
+*arreglos varios
+
+nuevo:
+* hay cursos, que relacionan alumnos con profesores
+* paginación, búsqueda y ordenamiento para administradores
+* administradores tienen acceso a más info que el resto, y algunas otras asociaciones
+* datos privados, y para los estudiantes tienen info semi-publica (que pueden ver sus profesores)
+
+
+mejoras:
+* 
+
+correcciones:
+*hay permisos para crear sesión
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 version 0.0.1
 *subido a produccion
 

@@ -1,4 +1,5 @@
 class TypesController < ApplicationController
+	before_filter :admin
   # GET /types
   # GET /types.json
   def index

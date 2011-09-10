@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
    helper_method :current_user, :current_user_name, :authorize_post
+   helper_method :admin, :authorize, :update_time
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
   end
@@ -8,16 +9,19 @@ class ApplicationController < ActionController::Base
   private
   
   def current_user
-  	if session[:user_id]!=nil && session[:last_use]!=nil && session[:last_use] > 30.minute.ago
-  	  @current_user ||= User.find(session[:user_id]) 
-  	  session[:last_use]=Time.now
-  	else
-  	  end_session
-  	end
+  	@current_user ||= User.find(session[:user_id]) if session[:user_id]
+  	#if session[:last_use] && session[:last_use] < (Time.now - 1.minutes)
+  	#   endsession
+  	#   redirect_to :root, :notice => "Session expired"
+  	##else 
+  	  ##	@current_user = nil
+  	  ##	end_session
+  	  ##	redirect_to login_path, :notice => 'Unauthorized access'
+  	 #end
   end
   
   def current_user_name
-  	@current_user_name ||= @current_user.username ? @current_user.username : "stranger"
+  	@current_user_name ||= (@current_user && @current_user.username) ? @current_user.username : "stranger"
   end
   
   def authorize_post
@@ -47,6 +51,29 @@ class ApplicationController < ActionController::Base
   		  user.save
   		end
   	end
+  end	
+  
+  def admin
+  	user = current_user
+  	unless user && user.username && user.username.eql?("admin")
+  		redirect_to :root, :notice => 'Unauthorized access'
+  		false 
+  	else
+  		true
+  	end
+  end
+ 
+  def authorize
+  	unless session[:user_id]
+  		redirect_to :root, :notice => 'Unauthorized access'
+  		false 
+  	else
+  		true
+  	end
+  end
+   
+  def update_time
+  	session[:last_use]=Time.now
   end	
   
 end

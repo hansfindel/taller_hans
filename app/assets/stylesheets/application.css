@@ -22,11 +22,22 @@ span.aviso_pass, span.aviso_mail{
 	background-color:white;
 	color:red;
 }
+span.comentario{
+	font-size: 8px;
+	background-color:white;
+	color:gray;
+}
 span { 
+	/*
 	background-color:red;
-	color:black; 
+	color:black;
+	*/ 
     font-size: 10px;	
     font:bold;
+}
+a{
+	background-color:white;
+	color:black;
 }
 #flash_notice, #flash_error, #flash_alert {
   padding: 5px 8px;
@@ -53,4 +64,14 @@ input[type=checkbox] {
 }
 #cuerpo{
 	margin-left:10%;
+}
+table{
+	border-collapse:collapse;
+}
+th, td{
+	padding:15px;
+	text-align:center;
+}
+table, th, td, tr .grilla{
+	border: 1px solid black ;
 }

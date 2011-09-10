@@ -1,11 +1,26 @@
 class UsersController < ApplicationController
   load_and_authorize_resource
+  before_filter :admin, :except => [:index, :new, :create, :show, :edit, :update]
+  
+   helper_method :sort_column, :sort_direction
   
 # GET /users
   # GET /users.json
   def index
-    @users = User.all
-
+	if current_user.username.eql?("admin")
+      @users = User.search(params[:search]).order(sort_column+" " + sort_direction).page(params[:page]).per(2)
+	else
+	  profe=User.find(session[:user_id])
+	  lista_cursos = profe.courses
+	  lista_alumnos = Array.new
+	  lista_cursos.each do |l|
+	  	list=l.alumns
+	  	list.each do |x|
+	  		lista_alumnos << x.user_id
+  		end
+      end
+	  @users = User.find(lista_alumnos)	
+	end	
     respond_to do |format|
       format.html # index.html.erb
       format.json { render :json => @users }
@@ -16,6 +31,7 @@ class UsersController < ApplicationController
   # GET /users/1.json
   def show
     @user = User.find(params[:id])
+	@cursos = @user.courses
     
     respond_to do |format|
       format.html # show.html.erb
@@ -27,7 +43,7 @@ class UsersController < ApplicationController
   # GET /users/new.json
   def new
     @user = User.new
-
+	 
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json => @user }
@@ -43,7 +59,7 @@ class UsersController < ApplicationController
   # POST /users.json
   def create
     @user = User.new(params[:user])
-
+ 
   	session[:user_id] = @user.id
   	session[:last_use] = Time.now
   	session[:session_token] = BCrypt::Engine.generate_salt
@@ -64,7 +80,7 @@ class UsersController < ApplicationController
   # PUT /users/1.json
   def update
     @user = User.find(params[:id])
-
+ 
     respond_to do |format|
       if @user.update_attributes(params[:user])
         format.html { redirect_to @user, :notice => 'User was successfully updated.' }
@@ -81,10 +97,20 @@ class UsersController < ApplicationController
   def destroy
     @user = User.find(params[:id])
     @user.destroy
+    
 
     respond_to do |format|
       format.html { redirect_to users_url }
       format.json { head :ok }
     end
   end
+  
+  def sort_column
+  	User.column_names.include?(params[:sort]) ? params[:sort] : "id"
+  end
+  
+  def sort_direction
+  	%w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+  end
+  
 end

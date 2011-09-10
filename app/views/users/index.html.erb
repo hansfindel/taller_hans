@@ -1,37 +1,62 @@
 <h1>Listing users</h1>
 
+    
+    <div class="search_area">
+      <%= form_tag users_path, :method => 'get', :id => "users_search" do %>
+      	<%= hidden_field_tag :direction,params[:direction] %>
+		<%= hidden_field_tag :sort,params[:sort] %>
+          <%= text_field_tag :search, params[:search] %>
+          <%= submit_tag "Search", :name => nil %>
+		<br />
+      <% end %>
+    </div>
+    <br />
+    
+<%= paginate @users %>
 <table>
   <tr>
-    <th>Rut</th>
-    <th>Username</th>
-    <th>Email</th>
-    <th>Type</th>
-    <th>Password hash</th>
-    <th>Password salt</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <% if can? :update, @user %>
+    	<th><%= sortable "id","ID" %></th>
+    <% end %>    	
+    <th><%= sortable "rut", "Rut" %></th>
+    <th><%= sortable "username", "Username" %></th>
+    <th><%= sortable "email", "Email" %></th>
+
+    <% if can? :update, @user %>    
+     <th><%= sortable "type_id", "Type"  %></th>    
+     <th></th>
+     <th></th>
+     <th></th>
+    <% end %>
   </tr>
 
 <% @users.each do |user| %>
   <tr>
+    <% if can? :update, @user %>
+     <td><%= user.id %></td>
+    <% end %>
     <td><%= user.rut %></td>
     <td><%= user.username %></td>    
     <td><%= user.email %></td>
-    <% if user.type %>
-     <td><%= user.type.type_name %></td>
-    <% else %>
-     <td> Omitido </td>
+   
+    
+    <% if can? :update, @user%>
+     <% if user.type %>
+      <td><%= user.type.type_name %></td>
+     <% else %>
+      <td> Omitido </td>
+     <% end %>
+     <td><%= link_to 'Show', user %></td>
+     <td><%= link_to 'Edit', edit_user_path(user) %></td>
+     <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
     <% end %>
-    <td><%= user.password_hash %></td>
-    <td><%= user.password_salt %></td>
-    <td><%= link_to 'Show', user %></td>
-    <td><%= link_to 'Edit', edit_user_path(user) %></td>
-    <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
+    
   </tr>
 <% end %>
 </table>
 
 <br />
 
+<% if can? :create, User %>
 <%= link_to 'New User', new_user_path %>
+<% end %>

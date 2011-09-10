@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Curso:</b>
+  <%= @course.curso %>
+</p>
+
+<p>
+  <b>Año:</b>
+  <%= @course.agno %>
+</p>
+
+
+<% if !@profes.eql?([]) %>
+<p>
+  <b>Profesor(es):</b>
+  <ul>
+  <% @profes.each do |p| %>
+    <li><%= p.username %></li>
+  <% end %>
+  </ul>	  	
+</p>
+<% end %>
+
+<% if !@alumnos.eql?([]) %>
+<p>
+  <b>Alumnos:</b>  
+  <table class="grilla">
+  <tr>
+    <th>Id</th>
+    <th>Username</th>
+    <th>email</th>  
+    <th>Rut</th>
+  </tr>
+  
+  <% @alumnos.each do |a| %>
+	<tr>
+      <td> <%= a.id %> </td>
+      <td> <%= a.username %> </td>
+      <td> <%= a.email %> </td>
+      <td> <%= a.rut %> </td>     	
+	</tr>
+  <% end %>
+  
+  </table>	
+</p>
+  <% end %>  
+
+<% if can? :update, @course %>
+<%= link_to 'Edit', edit_course_path(@course) %> |
+<% end %>
+
+<%= link_to 'Back', courses_path %>

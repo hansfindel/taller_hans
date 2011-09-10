@@ -24,8 +24,12 @@ gem 'client_side_validations'
 gem 'bcrypt-ruby', :require => "bcrypt"
 gem 'cancan'
 
-gem 'execjs'
-gem 'therubyracer'
+group :production do 
+  gem 'execjs'
+  gem 'therubyracer'
+end
+
+gem 'kaminari'
 
 # Use unicorn as the web server
 # gem 'unicorn'
