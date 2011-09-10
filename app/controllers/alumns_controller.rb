@@ -46,9 +46,9 @@ class AlumnsController < ApplicationController
     respond_to do |format|
       if @alumn.save
         format.html { redirect_to @alumn, :notice=> 'Alumn was successfully created.' }
-        format.json { render :json=> @alumn, :status=> :created, location: @alumn }
+        format.json { render :json=> @alumn, :status=> :created, :location=> @alumn }
       else
-        format.html { render action: "new" }
+        format.html { render :action=> "new" }
         format.json { render :json=> @alumn.errors, :status=> :unprocessable_entity }
       end
     end
@@ -61,10 +61,10 @@ class AlumnsController < ApplicationController
 
     respond_to do |format|
       if @alumn.update_attributes(params[:alumn])
-        format.html { redirect_to @alumn, notice: 'Alumn was successfully updated.' }
+        format.html { redirect_to @alumn, :notice=> 'Alumn was successfully updated.' }
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
+        format.html { render :action=> "edit" }
         format.json { render :json=> @alumn.errors, :status=> :unprocessable_entity }
       end
     end
