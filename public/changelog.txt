@@ -1,6 +1,19 @@
 Proyecto de iic2515_2011-2
 Creador: Hans
 
+version 0.0.3
+*arreglos en el servidor
+
+nuevo:
+* 
+
+mejoras:
+* corrección de varios controladores, problemas con la asginación de valor a algunos símbolos ( method:  cambia a :method=>, idem para notice, json y otros )
+
+correcciones:
+*hay permisos para crear nuevo usuario (en el cambio de los permisos había sido eliminada)
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 version 0.0.2
 *arreglos varios
 
@@ -9,7 +22,8 @@ nuevo:
 * paginación, búsqueda y ordenamiento para administradores
 * administradores tienen acceso a más info que el resto, y algunas otras asociaciones
 * datos privados, y para los estudiantes tienen info semi-publica (que pueden ver sus profesores)
-
+* el administador puede crear más cursos y es él quien asigna profesores y alumnos
+* profesores sólo pueden ver a sus alumnos, el administrador a todos los usuarios
 
 mejoras:
 * 
