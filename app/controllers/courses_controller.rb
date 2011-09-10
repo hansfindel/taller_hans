@@ -17,7 +17,7 @@ class CoursesController < ApplicationController
 		
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @courses }
+      format.json { render :json=> @courses }
     end
   end
 
@@ -41,7 +41,7 @@ class CoursesController < ApplicationController
 	
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @course }
+      format.json { render :json=> @course }
     end
   end
 
@@ -52,7 +52,7 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @course }
+      format.json { render :json=> @course }
     end
   end
 
@@ -68,11 +68,11 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.save
-        format.html { redirect_to @course, notice: 'Course was successfully created.' }
-        format.json { render json: @course, status: :created, location: @course }
+        format.html { redirect_to @course, :notice=> 'Course was successfully created.' }
+        format.json { render :json=> @course, :status=> :created, location: @course }
       else
-        format.html { render action: "new" }
-        format.json { render json: @course.errors, status: :unprocessable_entity }
+        format.html { render :action=> "new" }
+        format.json { render :json=> @course.errors, :status=> :unprocessable_entity }
       end
     end
   end
@@ -84,11 +84,11 @@ class CoursesController < ApplicationController
 
     respond_to do |format|
       if @course.update_attributes(params[:course])
-        format.html { redirect_to @course, notice: 'Course was successfully updated.' }
+        format.html { redirect_to @course, :notice=> 'Course was successfully updated.' }
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @course.errors, status: :unprocessable_entity }
+        format.html { render :action=> "edit" }
+        format.json { render :json=> @course.errors, :status=> :unprocessable_entity }
       end
     end
   end

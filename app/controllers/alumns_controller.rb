@@ -7,7 +7,7 @@ class AlumnsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @alumns }
+      format.json { render :json=> @alumns }
     end
   end
 
@@ -18,7 +18,7 @@ class AlumnsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @alumn }
+      format.json { render :json=> @alumn }
     end
   end
 
@@ -29,7 +29,7 @@ class AlumnsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @alumn }
+      format.json { render :json=> @alumn }
     end
   end
 
@@ -45,11 +45,11 @@ class AlumnsController < ApplicationController
 
     respond_to do |format|
       if @alumn.save
-        format.html { redirect_to @alumn, notice: 'Alumn was successfully created.' }
-        format.json { render json: @alumn, status: :created, location: @alumn }
+        format.html { redirect_to @alumn, :notice=> 'Alumn was successfully created.' }
+        format.json { render :json=> @alumn, :status=> :created, location: @alumn }
       else
         format.html { render action: "new" }
-        format.json { render json: @alumn.errors, status: :unprocessable_entity }
+        format.json { render :json=> @alumn.errors, :status=> :unprocessable_entity }
       end
     end
   end
@@ -65,7 +65,7 @@ class AlumnsController < ApplicationController
         format.json { head :ok }
       else
         format.html { render action: "edit" }
-        format.json { render json: @alumn.errors, status: :unprocessable_entity }
+        format.json { render :json=> @alumn.errors, :status=> :unprocessable_entity }
       end
     end
   end

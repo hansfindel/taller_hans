@@ -11,8 +11,9 @@
       <% end %>
     </div>
     <br />
-    
+ <% if can? :create, Course %>    
 <%= paginate @users %>
+ <% end %>
 <table>
   <tr>
     <% if can? :update, @user %>
@@ -57,6 +58,6 @@
 
 <br />
 
-<% if can? :create, User %>
+<% if can? :create, Course %>
 <%= link_to 'New User', new_user_path %>
 <% end %>

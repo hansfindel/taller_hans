@@ -7,7 +7,7 @@ class ProfesorsController < ApplicationController
 
     respond_to do |format|
       format.html # index.html.erb
-      format.json { render json: @profesors }
+      format.json { render :json=> @profesors }
     end
   end
 
@@ -18,7 +18,7 @@ class ProfesorsController < ApplicationController
 
     respond_to do |format|
       format.html # show.html.erb
-      format.json { render json: @profesor }
+      format.json { render :json=> @profesor }
     end
   end
 
@@ -29,7 +29,7 @@ class ProfesorsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.json { render json: @profesor }
+      format.json { render :json=> @profesor }
     end
   end
 
@@ -45,11 +45,11 @@ class ProfesorsController < ApplicationController
 
     respond_to do |format|
       if @profesor.save
-        format.html { redirect_to @profesor, notice: 'Profesor was successfully created.' }
-        format.json { render json: @profesor, status: :created, location: @profesor }
+        format.html { redirect_to @profesor, :notice=> 'Profesor was successfully created.' }
+        format.json { render json: @profesor, :status=> :created, location: @profesor }
       else
         format.html { render action: "new" }
-        format.json { render json: @profesor.errors, status: :unprocessable_entity }
+        format.json { render :json=> @profesor.errors, :status=> :unprocessable_entity }
       end
     end
   end
@@ -61,11 +61,11 @@ class ProfesorsController < ApplicationController
 
     respond_to do |format|
       if @profesor.update_attributes(params[:profesor])
-        format.html { redirect_to @profesor, notice: 'Profesor was successfully updated.' }
+        format.html { redirect_to @profesor, :notice=> 'Profesor was successfully updated.' }
         format.json { head :ok }
       else
-        format.html { render action: "edit" }
-        format.json { render json: @profesor.errors, status: :unprocessable_entity }
+        format.html { render :action=> "edit" }
+        format.json { render :json=> @profesor.errors, :status=> :unprocessable_entity }
       end
     end
   end
