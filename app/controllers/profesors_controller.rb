@@ -46,9 +46,9 @@ class ProfesorsController < ApplicationController
     respond_to do |format|
       if @profesor.save
         format.html { redirect_to @profesor, :notice=> 'Profesor was successfully created.' }
-        format.json { render json: @profesor, :status=> :created, location: @profesor }
+        format.json { render :json=> @profesor, :status=> :created, :location=> @profesor }
       else
-        format.html { render action: "new" }
+        format.html { render :action=> "new" }
         format.json { render :json=> @profesor.errors, :status=> :unprocessable_entity }
       end
     end

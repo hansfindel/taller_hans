@@ -15,7 +15,7 @@
     <td><%= profesor.course_id %></td>
     <td><%= link_to 'Show', profesor %></td>
     <td><%= link_to 'Edit', edit_profesor_path(profesor) %></td>
-    <td><%= link_to 'Destroy', profesor, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to 'Destroy', profesor, :confirm=> 'Are you sure?', :method=> :delete %></td>
   </tr>
 <% end %>
 </table>
