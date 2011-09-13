@@ -1,15 +1,4 @@
 <%= form_for @user, :validate => true do |f| %>
-  <% if @user.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
-
-      <ul>
-      <% @user.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
 
   <div class="field">
@@ -31,10 +20,19 @@
     <%= f.label :email %><br />
     <%= f.email_field :email %>
   </div>
+  
+  <% if can? :destroy, @user %>
   <div class="field">
     <%= f.label :type_id %><br />
     <%= f.collection_select :type_id, Type.all, :id, :type_name, :prompt => false %>
   </div>
+
+  <div class="field">
+    <%= f.label :active %><br />
+    <%= f.check_box :active %>
+  </div>
+
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>

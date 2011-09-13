@@ -8,7 +8,7 @@ class User < ActiveRecord::Base
 	has_many :profesors
 	has_many :courses, :through => :profesors
 	
-	attr_accessible :username, :email, :password, :password_confirmation, :rut, :type_id, :verificador
+	attr_accessible :username, :email, :password, :password_confirmation, :rut, :type_id, :verificador, :active
 	attr_accessor :password, :verificador
 	before_save :encrypt_password
 	

@@ -24,8 +24,10 @@ gem 'client_side_validations'
 gem 'bcrypt-ruby', :require => "bcrypt"
 gem 'cancan'
 
+group :production do
   gem 'execjs'
   gem 'therubyracer'
+end
 
 gem 'kaminari'
 

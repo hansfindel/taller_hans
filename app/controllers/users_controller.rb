@@ -65,6 +65,11 @@ class UsersController < ApplicationController
   	session[:session_token] = BCrypt::Engine.generate_salt
   	@user.session_token = session[:session_token]
 
+	if @user.admin
+	  @user.active=true	
+	else
+	  @user.active=false
+	end 
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, :notice => 'User was successfully created.' }

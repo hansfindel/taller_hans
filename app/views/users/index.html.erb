@@ -16,15 +16,16 @@
  <% end %>
 <table>
   <tr>
-    <% if can? :update, @user %>
+    <% if can? :destroy, @user %>
     	<th><%= sortable "id","ID" %></th>
     <% end %>    	
     <th><%= sortable "rut", "Rut" %></th>
     <th><%= sortable "username", "Username" %></th>
     <th><%= sortable "email", "Email" %></th>
 
-    <% if can? :update, @user %>    
+    <% if can? :destroy, @user %>    
      <th><%= sortable "type_id", "Type"  %></th>    
+     <th><%= sortable "active", "Active?"  %></th>    
      <th></th>
      <th></th>
      <th></th>
@@ -33,7 +34,7 @@
 
 <% @users.each do |user| %>
   <tr>
-    <% if can? :update, @user %>
+    <% if can? :destroy, @user %>
      <td><%= user.id %></td>
     <% end %>
     <td><%= user.rut %></td>
@@ -41,12 +42,13 @@
     <td><%= user.email %></td>
    
     
-    <% if can? :update, @user%>
+    <% if can? :destroy, @user%>
      <% if user.type %>
       <td><%= user.type.type_name %></td>
      <% else %>
       <td> Omitido </td>
      <% end %>
+      <td><%= user.active %></td>
      <td><%= link_to 'Show', user %></td>
      <td><%= link_to 'Edit', edit_user_path(user) %></td>
      <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>

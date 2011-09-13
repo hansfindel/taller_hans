@@ -1,6 +1,21 @@
 Proyecto de iic2515_2011-2
 Creador: Hans
 
+
+version 0.0.4
+*activación de cuentas
+
+nuevo:
+*ahora se deben activar las cuentas... solo puede hacerlo el administrador! 
+
+mejoras:
+* 
+
+correcciones:
+*
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
+
 version 0.0.3
 *arreglos en el servidor
 
