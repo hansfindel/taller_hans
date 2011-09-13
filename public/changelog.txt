@@ -12,7 +12,7 @@ mejoras:
 * 
 
 correcciones:
-*
+*bug de user.admin
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 

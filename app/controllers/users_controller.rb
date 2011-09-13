@@ -65,7 +65,7 @@ class UsersController < ApplicationController
   	session[:session_token] = BCrypt::Engine.generate_salt
   	@user.session_token = session[:session_token]
 
-	if @user.admin
+	if @user.username.eql?("admin")
 	  @user.active=true	
 	else
 	  @user.active=false
