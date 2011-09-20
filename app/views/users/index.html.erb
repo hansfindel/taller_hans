@@ -16,14 +16,14 @@
  <% end %>
 <table>
   <tr>
-    <% if can? :destroy, @user %>
+    <% if can? :create, Course %>
     	<th><%= sortable "id","ID" %></th>
     <% end %>    	
     <th><%= sortable "rut", "Rut" %></th>
     <th><%= sortable "username", "Username" %></th>
     <th><%= sortable "email", "Email" %></th>
 
-    <% if can? :destroy, @user %>    
+    <% if can? :create, Course %>    
      <th><%= sortable "type_id", "Type"  %></th>    
      <th><%= sortable "active", "Active?"  %></th>    
      <th></th>

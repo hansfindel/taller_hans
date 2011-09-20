@@ -21,7 +21,7 @@ TallerHans::Application.routes.draw do
   get "log_out" => "sessions#destroy", :as => 'logout'
 
   get "lista/users" => "users#lista", :as => 'lista'
-
+  get "reset_password/:id" => "users#reset_password"
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
