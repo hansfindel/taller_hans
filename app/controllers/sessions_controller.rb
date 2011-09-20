@@ -1,10 +1,12 @@
 class SessionsController < ApplicationController
-
+	
+	
   def new
+  	render :layout => false
   end
   
   def create
-  	
+	  	
   	if params[:mail]=='' || params[:password]==''
   		flash.now.alert = "Falta informacion"
   		render "new"

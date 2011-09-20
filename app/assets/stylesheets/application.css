@@ -75,3 +75,10 @@ th, td{
 table, th, td, tr .grilla{
 	border: 1px solid black ;
 }
+
+p.invite{
+	text-align:right;
+}
+div #encabezado_container, #cuerpo{
+	clear:both;
+}

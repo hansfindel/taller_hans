@@ -59,7 +59,7 @@ class User < ActiveRecord::Base
  	
  	def self.authenticate_mail(mail, password)
  		user = User.find_by_email(mail)
- 		if user && user.password_hash == sup_encrypt(password, user.password_salt)
+ 		if user && user.active && user.password_hash == sup_encrypt(password, user.password_salt)
  			user
  		else
  			nil
@@ -67,7 +67,7 @@ class User < ActiveRecord::Base
  	end	
  	def self.authenticate_rut(rut, password)
  		user = User.find_by_rut(rut)
- 		if user && user.password_hash == sup_encrypt(password, user.password_salt)
+ 		if user && user.active && user.password_hash == sup_encrypt(password, user.password_salt)
  			user
  		else
  			nil
@@ -75,7 +75,7 @@ class User < ActiveRecord::Base
  	end	
  	def self.authenticate_name(name, password)
  		user = User.find_by_username(name)
- 		if user && user.password_hash == sup_encrypt(password, user.password_salt)
+ 		if user && user.active && user.password_hash == sup_encrypt(password, user.password_salt)
  			user
  		else
  			nil

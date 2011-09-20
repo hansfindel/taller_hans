@@ -1,6 +1,22 @@
 Proyecto de iic2515_2011-2
 Creador: Hans
 
+version 0.0.5
+*cuentas de usuario 2
+
+nuevo:
+* 
+
+mejoras:
+* más información en el metatag
+* el administrador ahora ve más información relevante y ya no ve los hash del usuario
+* ya "no existe" la eliminación real
+* funciona lo de los mails...
+
+correcciones:
+*
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 
 version 0.0.4
 *activación de cuentas

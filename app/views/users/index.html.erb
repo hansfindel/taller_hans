@@ -28,13 +28,12 @@
      <th><%= sortable "active", "Active?"  %></th>    
      <th></th>
      <th></th>
-     <th></th>
     <% end %>
   </tr>
 
 <% @users.each do |user| %>
   <tr>
-    <% if can? :destroy, @user %>
+    <% if can? :create, Course %>
      <td><%= user.id %></td>
     <% end %>
     <td><%= user.rut %></td>
@@ -42,7 +41,7 @@
     <td><%= user.email %></td>
    
     
-    <% if can? :destroy, @user%>
+    <% if can? :create, Course %>
      <% if user.type %>
       <td><%= user.type.type_name %></td>
      <% else %>
@@ -51,7 +50,6 @@
       <td><%= user.active %></td>
      <td><%= link_to 'Show', user %></td>
      <td><%= link_to 'Edit', edit_user_path(user) %></td>
-     <td><%= link_to 'Destroy', user, :confirm => 'Are you sure?', :method => :delete %></td>
     <% end %>
     
   </tr>

@@ -3,7 +3,7 @@
 
 
 <head>
-  <metatag version=0.0.4 >
+  <metatag version='0.0.5' nombre='cuenta de usuario 2' contenido='correcciones varios' >
   <title>TallerHans</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
@@ -11,13 +11,24 @@
 </head>
 <body>
 <div id="container">
+<div id="encabezado_container">
 <div id="user_nav">
   <% if current_user %>
   	Logged in as <%= link_to current_user_name, current_user %> | 
   	<%= link_to "Log out", logout_path%>
   <% else %>
-    <%= link_to "Register", sign_up_path%>
-    <%= link_to "Sign in", login_path%>
+    <p class="invite"><%= link_to "Register", sign_up_path%>
+    <%= link_to "Sign in", login_path%></p>
+    
+    <p class="invite" id="log_in"><%= form_tag sessions_path,  :id=>"session_form" do %>
+    	<%= label_tag :mail, "Identificador:" %>	  
+    	<span class="data"><%= text_field_tag :mail, params[:mail]%></span>
+     	<%= label_tag :password, "Pass:" %>
+	  	<span class="data"><%= password_field_tag :password, params[:pass] %></span>
+       <%= submit_tag "ingresar" %>
+	  	<% end %>
+       	
+    </p>		  
   <% end %>
 </div>
 
@@ -25,6 +36,7 @@
 	<%= content_tag :div, msg, :id => "#{name}"%>
 <% end %>
 
+</div>
 
 <div id="cuerpo">
 <%= yield %>
