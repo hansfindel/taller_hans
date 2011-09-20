@@ -17,18 +17,6 @@
   <%= @user.username %>
 </p>
 
-<% if can? :create, Course %>
-<p>
-  <b>Password hash:</b>
-  <%= @user.password_hash %>
-</p>
-
-<p>
-  <b>Password salt:</b>
-  <%= @user.password_salt %>
-</p>
-<% end %>
-
 <p>
   <b>Email:</b>
   <%= @user.email %>
@@ -38,6 +26,25 @@
   <b>Type:</b>
   <%= @user.type_id %>
 </p>
+
+<% if can? :create, Course %>
+<p>
+  <b>Ingresado en:</b>
+  <%= @user.created_at %>
+</p>
+
+<p>
+  <b>Ultima actualización:</b>
+  <%= @user.updated_at %>
+</p>
+<% if @user.password_reset_sent_at %>
+<div>
+  <b>Ultima recuperación:</b><br />
+  <p><b>Token:</b> <%= @user.password_reset_token %></p>
+  <p><b>Fecha:</b> <%= @user.password_reset_sent_at %></p>
+</div>
+<% end %>
+<% end %>
 
 <% if can? :update, @user %>
 <%= link_to 'Edit', edit_user_path(@user) %> |

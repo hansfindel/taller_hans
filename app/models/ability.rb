@@ -11,7 +11,7 @@ class Ability
 	if user.username && user.username.eql?("admin")
 		can :manage, :all
 		can :create, Profesor
-	
+		cannot :destroy, :all
 		
 	elsif type && type.type_name == 'Profesor'
 		
