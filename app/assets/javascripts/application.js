@@ -9,7 +9,6 @@
 //= require_tree .
 //= require rails.validations
    
-<script type="text/javascript">
 $(document).ready(function(){
 
 function validar(){
@@ -65,4 +64,3 @@ $('#password').blur(function() {
  });
 
 });
-</script>

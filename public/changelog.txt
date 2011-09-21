@@ -1,6 +1,19 @@
 Proyecto de iic2515_2011-2
 Creador: Hans
 
+version 0.0.6
+Plan de pruebas
+
+nuevo:
+* existe un plan de pruebas
+
+mejoras:
+*
+
+correcciones:
+*
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 version 0.0.5
 *cuentas de usuario 2
 

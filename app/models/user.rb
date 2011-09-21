@@ -23,9 +23,9 @@ class User < ActiveRecord::Base
     				  :with => /^([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})$/i,
     				  :message => "no corresponde al formato"
 
-    validates_format_of :username,
-    				  :with => /^[:alpha:][.]*/i,
-    				  :message => "debe comenzar con una letra!"
+    #validates_format_of :username,
+    #				  :with => /^[:alpha:][.]*/i,
+    #				  :message => "debe comenzar con una letra!"
     
     validates_format_of :verificador,
     				  :with => /^[-0-9k]/i,

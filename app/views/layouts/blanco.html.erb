@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+
+
+<head>
+  <metatag version='0.0.6' nombre='cuenta de usuario 2' contenido='correcciones varios' >
+  <title>TallerHans</title>
+  <%= stylesheet_link_tag    "application" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div id="container">
+<div id="encabezado_container">
+<% flash.each do |name, msg| %>
+	<%= content_tag :div, msg, :id => "#{name}"%>
+<% end %>
+
+</div>
+
+<div id="cuerpo">
+  <%= yield %>
+</div>
+
+</div>
+</body>
+</html>
