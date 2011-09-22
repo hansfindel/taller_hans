@@ -1,2 +1,6 @@
 Plan de pruebas:
 
+1) tratar de ingresar información errónea al crear usuarios
+2) tratar loguearse con datos insuficientes (desde la página log_in)
+3) tratar de ingresar a users sin estar logueado
+

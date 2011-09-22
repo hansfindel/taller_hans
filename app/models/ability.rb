@@ -4,7 +4,7 @@ class Ability
   def initialize(user)
   	
 
-	type=Type.find(user.type_id) if user
+	type=Type.find(user.type_id) if (user && user.type_id)
 	id=user.id if user
 	user ||= User.new
 		
@@ -12,6 +12,7 @@ class Ability
 		can :manage, :all
 		can :create, Profesor
 		cannot :destroy, :all
+	
 		
 	elsif type && type.type_name == 'Profesor'
 		
