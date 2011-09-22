@@ -21,7 +21,7 @@
     <%= f.email_field :email %>
   </div>
   
-  <% if can? :destroy, @user %>
+  <% if can? :create, Course %>
   <div class="field">
     <%= f.label :type_id %><br />
     <%= f.collection_select :type_id, Type.all, :id, :type_name, :prompt => false %>
