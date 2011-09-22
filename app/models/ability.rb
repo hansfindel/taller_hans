@@ -27,9 +27,8 @@ class Ability
 		
 	else
 		#can :read, :all
-		#cannot :ma, :users
 		can :create, User
-		can [:read, :update], @user, :id => user.id
+		can [:read, :update], [User, @user], :id => user.id
 		cannot [:read, :update, :create], [Profesor, Alumn, Course]
 		
 		#can :update,:comment if self!
