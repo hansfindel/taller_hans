@@ -4,7 +4,7 @@ class Ability
   def initialize(user)
   	
 
-	type=Type.find(user.type_id) if user
+	type=Type.find(user.type_id) if (user && user.type_id)
 	id=user.id if user
 	user ||= User.new
 		
