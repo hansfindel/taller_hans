@@ -12,6 +12,7 @@ class Ability
 		can :manage, :all
 		can :create, Profesor
 		cannot :destroy, :all
+	
 		
 	elsif type && type.type_name == 'Profesor'
 		
@@ -26,7 +27,6 @@ class Ability
 		
 	else
 		#can :read, :all
-		#cannot :ma, :users
 		can :create, User
 		can [:read, :update], [User, @user], :id => user.id
 		cannot [:read, :update, :create], [Profesor, Alumn, Course]

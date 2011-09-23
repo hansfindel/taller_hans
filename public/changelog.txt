@@ -6,12 +6,13 @@ Plan de pruebas
 
 nuevo:
 * existe un plan de pruebas
+* 
 
 mejoras:
-*
+* se arregló lo del javascript en la creación de usuarios
 
 correcciones:
-*
+* los alumnos consideran todos sus cursos
 
 - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 version 0.0.5
