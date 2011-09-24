@@ -1,6 +1,21 @@
 Proyecto de iic2515_2011-2
 Creador: Hans
 
+version 0.0.7
+Plan de pruebas 1.1
+
+nuevo:
+* plan de pruebas más completo
+* set de resultados a cada faceta del plan de pruebas
+
+mejoras:
+* se borran los password_reset_token cuando están desactivados
+
+correcciones:
+* no se puede usar un password_reset_token para cambiar dos veces al usuario
+* eliminadas las notificaciones dobles
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 version 0.0.6
 Plan de pruebas
 
