@@ -1,6 +1,25 @@
 Plan de pruebas:
-
+ 
 1) tratar de ingresar información errónea al crear usuarios
 2) tratar loguearse con datos insuficientes (desde la página log_in)
 3) tratar de ingresar a users sin estar logueado
+4) intentar ingresar a users/create  ** se debería ingresar solo vía post y no get
+5) tratar de registrarse dos veces con un mismo parámetro único (rut, mail o username)
+6) ingresar a la url de otro usuario  ** distintos resultados dependiendo si se tienen permisos o no
+7) ingresar a una url invalida (ej: iic2515-1.puc.cl/users/asdf)
+8) tratar de loguearse sin saber la contraseña
+9) tratar de cambiar la contraseña via password_reset (mail), con un link expirado
+
+
+Manejo de errores
+
+1) Javascript no lo permite, y aunque fuera ignorado el servidor no lo ingresa a la base de datos. Se redirige al usuario al formulario y se le avisa que hubo un problema (error usuario)
+2) Desde la página log_in te niega via javascript, requiere "nombre" y password, también exije que ésta tenga entre 4 y 16 caracteres para que sea válido. Si lo evita, se le avisa y se le vuelve a redirigir a la misma página (error usuario)
+3) No tiene pemisos, se redirige a la página inicial, lo mismo pasa si es estudiante (error usuario)
+4) error "página no existe" (error conocido)
+5) Javascript avisa que está repetido. Si se salta ese paso ocure lo mismo que en el primer caso (error de "usuario")
+6) Si no se tiene permiso se redirige al usuario a la página inicial, y se le avisa qe no tenía permisos para ir a esa url (error usuario). Si tenía acceso (es administrador, o bien  el perfil es de un estudiante y el que trata de acceder es profesor del estudiante en al menos una asignatura), puede ver la información que le corresponde (distinta para profesor y administrador)
+7) Mensaje de error, la página no existe (error usuario - error conocido)
+8) Queda un registro en el sistema, se le dice al usuario que ha habido un error al ingresar los datos (mail o password incorrectos). Con un determinado número de intentos de registro a una misma cuenta se bloquea temporalmente.
+9) Se le avisa que está expirado el link y se le redirige a la página donde puede solicitar uno nuevo. (error de usuario) *De paso se aprovecha a limpiar todos los hash que puedan ser no nulos 
 

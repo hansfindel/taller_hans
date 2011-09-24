@@ -13,6 +13,18 @@ class PasswordResetsController < ApplicationController
 
   def edit
     @user = User.find_by_password_reset_token!(params[:id])
+    
+    @cleaner = User.all
+    @cleaner.each do |user|
+	  if user.password_reset_sent_at && user.password_reset_sent_at < 2.hours.ago
+	    user.password_reset_token = nil
+	    user.save
+	  end
+    end
+    
+    if @user.password_reset_sent_at < 2.hours.ago
+      redirect_to new_password_reset_path, :alert => "Password reset has expired."      
+ 	end
   end
 
   def update
@@ -20,6 +32,8 @@ class PasswordResetsController < ApplicationController
     if @user.password_reset_sent_at < 2.hours.ago
       redirect_to new_password_reset_path, :alert => "Password reset has expired."
     elsif @user.update_attributes(params[:user])
+      @user.password_reset_token = nil
+      @user.sa
       redirect_to root_url, :notice => "Password has been reset!"
     else
       render :edit
