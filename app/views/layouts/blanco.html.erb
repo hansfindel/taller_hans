@@ -15,16 +15,35 @@
 
 
 <body>
-<div id="container">
-<div id="encabezado_container">
+<div id="wrapper">
+
 <% flash.each do |name, msg| %>
 	<%= content_tag :div, msg, :id => "#{name}"%>
 <% end %>
 
+<div id="header">
+<div id="logo">
+	<h1>Taller Web</h1>
+	<h2> </h2>
 </div>
+ <div id="menu">
+		<ul></ul>
+  </div>		
 
-<div id="cuerpo">
+<div id="page_white">
+<div id="content">
+
   <%= yield %>
+</div>
+<div id="sidebar">
+			<ul>
+				<li>
+					<h2>Aliquam tempus</h2>
+					<p>Mauris vitae nisl nec metus placerat perdiet est. Phasellus dapibus semper consectetuer hendrerit.</p>
+				</li>
+			</ul>
+	</div>			
+</div>
 </div>
 
 </div>
