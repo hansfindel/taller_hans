@@ -1,4 +1,10 @@
 
+<div class="post">
+				<div class="bg1">
+					<div class="bg2">
+						<div class="bg3">
+<h2 class="title"> Detalle curso </h2>
+	<div class="entry">	 
 <p>
   <b>Curso:</b>
   <%= @course.curso %>
@@ -9,21 +15,41 @@
   <%= @course.agno %>
 </p>
 
+  </div>
+						</div>
+					</div>
+				</div>
+</div>
 
 <% if !@profes.eql?([]) %>
-<p>
-  <b>Profesor(es):</b>
+	<div class="post">
+				<div class="bg1">
+					<div class="bg2">
+						<div class="bg3">
+<h2 class="title">Profesor(es):</h2>
+	<div class="entry">	 
   <ul>
   <% @profes.each do |p| %>
-    <li><%= p.username %></li>
+    <li><%= link_to p.username, p %></li>
   <% end %>
   </ul>	  	
-</p>
+
+  </div>
+						</div>
+					</div>
+				</div>
+</div>
 <% end %>
 
 <% if !@alumnos.eql?([]) %>
-<p>
-  <b>Alumnos:</b>  
+		<div class="post">
+				<div class="bg1">
+					<div class="bg2">
+						<div class="bg3">
+
+  <h2 class="title">Alumnos:</h2> 
+ 	
+  <div class="entry">	 
   <table class="grilla">
   <tr>
     <th>Id</th>
@@ -42,11 +68,22 @@
   <% end %>
   
   </table>	
-</p>
+
+  </div>
+						</div>
+					</div>
+				</div>
+</div>
   <% end %>  
+  
 
+
+<div id="label">
 <% if can? :update, @course %>
-<%= link_to 'Edit', edit_course_path(@course) %> |
+<%= link_to 'Editar', edit_course_path(@course) %> |
 <% end %>
+<%= link_to 'Ver cursos', courses_path %>
+</div>
 
-<%= link_to 'Back', courses_path %>
+
+

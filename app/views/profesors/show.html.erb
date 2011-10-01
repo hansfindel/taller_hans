@@ -1,4 +1,9 @@
-
+<div class="post">
+				<div class="bg1">
+					<div class="bg2">
+						<div class="bg3">
+<h2 class="title"> Detalle Profesor </h2>
+	<div class="entry">	 
 
 <p>
   <b>User:</b>
@@ -9,7 +14,13 @@
   <b>Course:</b>
   <%= @profesor.course_id %>
 </p>
+ </div>
+						</div>
+					</div>
+				</div>
+</div>
 
-
-<%= link_to 'Edit', edit_profesor_path(@profesor) %> |
-<%= link_to 'Back', profesors_path %>
+<div id="label">
+<%= link_to 'Editar', edit_profesor_path(@profesor) %> |
+<%= link_to 'Ve profesores', profesors_path %>
+</div>

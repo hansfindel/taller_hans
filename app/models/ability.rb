@@ -30,7 +30,7 @@ class Ability
 		can :create, User
 		can [:read, :update], [User, @user], :id => user.id
 		cannot [:read, :update, :create], [Profesor, Alumn, Course]
-		
+		cannot [:index], User
 		#can :update,:comment if self!
 	end  	
   	

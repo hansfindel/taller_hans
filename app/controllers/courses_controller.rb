@@ -4,9 +4,9 @@ class CoursesController < ApplicationController
   # GET /courses
   # GET /courses.json
   def index
-  	if current_user.username.eql?("admin")
+  	if current_user && current_user.username.eql?("admin")
       @courses = Course.all
-	else
+    elsif current_user
 	  @lista = Profesor.joins(:course).where(:user_id => session[:user_id])	
 	  list = Array.new
 	  @lista.each do |l|

@@ -1,25 +1,36 @@
-<h1>Listing profesors</h1>
-
+<div class="post">
+				<div class="bg1">
+					<div class="bg2">
+						<div class="bg3">
+	
+						<h2 class="title">Listado de profesores</h2>
+<div class="entry">	  
 <table>
   <tr>
-    <th>User</th>
-    <th>Course</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>id</th>
+	<th>Profesor</th>
+    <th>id Curso</th>
+ 	<th>Nombre del curso</th>
+ 	<th>Año</th>
   </tr>
 
 <% @profesors.each do |profesor| %>
   <tr>
     <td><%= profesor.user_id %></td>
+    <td><%= profesor.user.username %></td>
     <td><%= profesor.course_id %></td>
-    <td><%= link_to 'Show', profesor %></td>
-    <td><%= link_to 'Edit', edit_profesor_path(profesor) %></td>
-    <td><%= link_to 'Destroy', profesor, :confirm=> 'Are you sure?', :method=> :delete %></td>
+    <td><%= profesor.course.curso %></td> 
+    <td><%= profesor.course.agno %></td>       
+    <td><%= link_to 'Show', profesor %> <%= link_to 'Edit', edit_profesor_path(profesor) %></td>
   </tr>
 <% end %>
 </table>
+</div>
+						</div>
+					</div>
+				</div>
+	</div>
 
-<br />
-
-<%= link_to 'New Profesor', new_profesor_path %>
+<div id="label">
+<%= link_to 'Nuevo Profesor', new_profesor_path %>  
+</div>	  
