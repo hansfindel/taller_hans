@@ -1,5 +1,11 @@
-
+<div class="post">
+				<div class="bg1">
+					<div class="bg2">
+						<div class="bg3">
+<h2 class="title"> Detalle Usuario </h2>
+	<div class="entry">	 
 <% if can? :create, Course %>
+	
 <p>
   <b>Id:</b>
   <%= @user.id %>
@@ -27,6 +33,7 @@
 </p>
 
 <% if can? :create, Course %>
+	
 <p>
   <b>Ingresado en:</b>
   <%= @user.created_at %>
@@ -36,30 +43,52 @@
   <b>Ultima actualización:</b>
   <%= @user.updated_at %>
 </p>
-<% if @user.password_reset_sent_at %>
+<% if @user.password_reset_token %>
 <div>
   <b>Ultima recuperación:</b><br />
-  <p><b>Token:</b> <%= @user.password_reset_token %></p>
-  <p><b>Fecha:</b> <%= @user.password_reset_sent_at %></p>
+  <ul>
+  <li><b>Token:</b> <%= @user.password_reset_token %></li>
+  <li><b>Fecha:</b> <%= @user.password_reset_sent_at %></li>
+  </ul>     
 </div>
 <% end %>
+
 <% end %>
 
-<% if can? :update, @user %>
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<% end %>
-<%= link_to 'Back', users_path %>
+  </div>
+						</div>
+					</div>
+				</div>
+</div>
 
 
-<h1>Other info </h1>
+<% if @cursos %>
+<div class="post">
+				<div class="bg1">
+					<div class="bg2">
+						<div class="bg3">
+<h2 class="title"> Cursos </h2>
+	<div class="entry">
 
 <p>Cursos:</p>
 <ul>
   <% @cursos.each do |c| %>
-  	<li> <%= c.curso %> <%= c.agno %> </li>
+  	<li> <%= link_to c.curso, c %> <%= c.agno %> </li>
   <% end %>
 </ul>
+  </div>
+						</div>
+					</div>
+				</div>
+</div>
+  <% end %>
 
 
+<div id="label">
+<% if can? :update, @user %>
+<%= link_to 'Editar', edit_user_path(@user) %> |
+<% end %>
+<%= link_to 'Ver usuarios', users_path %>
+</div>
 
 

@@ -8,9 +8,10 @@ class UsersController < ApplicationController
 # GET /users
   # GET /users.json
   def index
-	if current_user.username.eql?("admin")
-      @users = User.search(params[:search]).order(sort_column+" " + sort_direction).page(params[:page]).per(2)
-	else
+	if current_user && current_user.username.eql?("admin")
+      @users = User.search(params[:search]).order(sort_column+" " + sort_direction).page(params[:page]).per(3)
+      
+    elsif current_user  
 	  profe=User.find(session[:user_id])
 	  lista_cursos = profe.courses
 	  lista_alumnos = Array.new
@@ -21,6 +22,9 @@ class UsersController < ApplicationController
   		end
       end
 	  @users = User.find(lista_alumnos)	
+	  
+	else 
+		redirect_to :root  
 	end	
     respond_to do |format|
       format.html # index.html.erb

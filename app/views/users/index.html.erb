@@ -1,17 +1,24 @@
-<h1>Listing users</h1>
 
     
-    <div class="search_area">
+<div class="post">
+				<div class="bg1">
+					<div class="bg2">
+						<div class="bg3">
+						
+	<div id="search_form">
       <%= form_tag users_path, :method => 'get', :id => "users_search" do %>
       	<%= hidden_field_tag :direction,params[:direction] %>
 		<%= hidden_field_tag :sort,params[:sort] %>
           <%= text_field_tag :search, params[:search] %>
           <%= submit_tag "Search", :name => nil %>
-		<br />
+	
       <% end %>
-    </div>
-    <br />
- <% if can? :create, Course %>    
+    </div>			
+						
+	<h2 class="title"> Listado de usuarios </h2>
+	
+	<div class="entry">	  
+			 <% if can? :create, Course %>    
 <%= paginate @users %>
  <% end %>
 <table>
@@ -26,7 +33,6 @@
     <% if can? :create, Course %>    
      <th><%= sortable "type_id", "Type"  %></th>    
      <th><%= sortable "active", "Active?"  %></th>    
-     <th></th>
      <th></th>
     <% end %>
   </tr>
@@ -48,16 +54,28 @@
       <td> Omitido </td>
      <% end %>
       <td><%= user.active %></td>
-     <td><%= link_to 'Show', user %></td>
-     <td><%= link_to 'Edit', edit_user_path(user) %></td>
+     <td><%= link_to 'Show', user %>
+     <%= link_to 'Edit', edit_user_path(user) %></td>
     <% end %>
     
   </tr>
 <% end %>
 </table>
 
-<br />
+		
+						</div>
+					</div>
+				</div>
+</div>
 
+<div id="label">
 <% if can? :create, Course %>
 <%= link_to 'New User', new_user_path %>
 <% end %>
+</div>
+
+</div>
+
+</div>
+
+

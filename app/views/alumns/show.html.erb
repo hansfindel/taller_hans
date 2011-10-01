@@ -1,4 +1,9 @@
-
+<div class="post">
+				<div class="bg1">
+					<div class="bg2">
+						<div class="bg3">
+<h2 class="title"> Detalle alumno </h2>
+	<div class="entry">	 
 <p>
   <b>User:</b>
   <%= @alumn.user_id %>
@@ -8,7 +13,13 @@
   <b>Course:</b>
   <%= @alumn.course_id %>
 </p>
+</div>
+						</div>
+					</div>
+				</div>
+</div>
 
-
-<%= link_to 'Edit', edit_alumn_path(@alumn) %> |
-<%= link_to 'Back', alumns_path %>
+<div id="label">
+<%= link_to 'Editar', edit_alumn_path(@alumn) %> |
+<%= link_to 'Ver alumnos', alumns_path %>
+</div>

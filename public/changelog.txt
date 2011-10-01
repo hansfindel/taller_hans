@@ -1,6 +1,19 @@
 Proyecto de iic2515_2011-2
 Creador: Hans
 
+version 0.0.8
+Errores en castellano
+
+nuevo:
+* imitando el css de http://www.freecsstemplates.org/preview/ridinghood/
+
+mejoras:
+* 
+
+correcciones:
+* las páginas de error están en castellano
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 version 0.0.7
 Plan de pruebas 1.1
 
