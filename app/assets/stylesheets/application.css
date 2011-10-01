@@ -200,6 +200,13 @@ a:hover {
 	padding: 25px 0px 0px 0px;
 	clear: both;
 }
+#page_white {
+	position:relative;
+	width: 1000px;
+	margin: 75px 0px 5px 0px;
+	padding: 25px 0px 0px 0px;
+	clear: both;
+}
 /* Content */
 
 #content {
