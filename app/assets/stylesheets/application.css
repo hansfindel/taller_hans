@@ -435,7 +435,7 @@ input#search{
   margin: 10px 0;
 }
 
-#flash_notice {
+#flash_notice, div#notice {
   background-color: #CFC;
   border: solid 1px #6C6;
 }
