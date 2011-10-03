@@ -354,13 +354,13 @@ a:hover {
 	position:relative;
 	margin: 1000px 0px 0px 0px;
 	height: 250px;
-	background: url(img02.gif) repeat-x left top;
+	background: url(/assets/img02.gif) repeat-x left top;
 }
 #footer-wrapper-fake {
 	position:relative;
 	margin: 20% 0px 0px 0px;
 	height: 250px;
-	background: url(img02.gif) repeat-x left top;
+	background: url(/assets/img02.gif) repeat-x left top;
 }
 
 
@@ -369,7 +369,7 @@ a:hover {
 	height: 250px;
 	margin: 0px auto;
 	padding: 0px 0px;
-	background: url(img03.gif) no-repeat left top;
+	background: url(/assets/img03.gif) no-repeat left top;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -391,15 +391,15 @@ a:hover {
 /* Background */
 
 .bg1 {
-	background: url(assets/img05.jpg ) repeat-y left top;
+	background: url(/assets/img05.jpg ) repeat-y left top;
 }
 
 .bg2 {
-	background: url(/img04.jpg ) no-repeat left top;
+	background: url(img04.jpg ) no-repeat left top;
 }
 
 .bg3 {
-	background: url(images/img06.jpg ) no-repeat left bottom;
+	background: url(img06.jpg ) no-repeat left bottom;
 }
 
 
