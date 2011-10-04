@@ -1,9 +1,341 @@
+/*
+      Created by Keith Donegan of Code-Sucks.com
+	  
+	  E-Mail: Keithdonegan@gmail.com
+	  
+	  You can do whatever you want with these layouts,
+	  but it would be greatly appreciated if you gave a link
+	  back to http://www.code-sucks.com
+	  
+*/
+
+* { padding: 0; margin: 0; }
+
+.upper-radius{
+	border-top-left-radius: 25px 25px;
+	border-top-right-radius: 25px 25px;
+}
+.bottom-radius{
+	border-bottom-left-radius: 25px 25px;
+	border-bottom-right-radius: 25px 25px;
+}
+.radius{
+	border-top-left-radius: 25px 25px;
+	border-top-right-radius: 25px 25px;
+	border-bottom-left-radius: 25px 25px;
+	border-bottom-right-radius: 25px 25px;
+}
+
+body {
+ font-family: Arial, Helvetica, sans-serif;
+ font-size: 13px;
+ background-color: #ababab;
+}
+#wrapper { 
+ margin: 0 auto;
+ width: 922px;
+}
+#page {
+ margin-bottom: 5px;
+ /*overflow: auto; /* Paul O Brien Fix for IE www.pmob.co.uk */
+ width: 100%
+}
+#header {
+ color: #333;
+ width: 902px;
+ padding: 10px;
+ height: 80px;
+ margin: 5px 0px 0px 0px;
+ background: #D1DBDB;
+}
+a{
+ text-decoration: none;
+}
+#header h1 {
+	position:relative;
+	float:left;
+	letter-spacing: -1px;
+	font-size: 4.6em;
+	color:#0000CC;
+}
+
+#user_nav{
+	position: relative;
+	float: right;
+	margin-right: 0%;
+}
+
+
+#menu {
+ color: #333;
+ padding: 10px 0px 8px 0px;
+ margin: 0px 0px 0px 0px;
+ background: #ABBEBE;
+ height: 40px;
+}
+
+#menu ul {
+	padding: 0px;
+	padding: 0px 0px 0px 0px;
+	list-style: none;
+	line-height: normal;
+}
+
+#menu li {
+	float: left;
+	
+	  transform:rotate(-7deg);
+  -ms-transform:rotate(-3deg); /* IE 9 */
+  -moz-transform:rotate(-12deg); /* Firefox */
+  -webkit-transform:rotate(-8deg); /* Safari and Chrome */
+  -o-transform:rotate(-5deg); /* Opera */
+	
+}
+
+#menu a {
+	display: block;
+	margin-right: 3px;
+	height: 35px;
+	padding: 4px 12px 9px 12px;
+	border: none;
+	text-decoration: none;
+	text-transform: uppercase;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 14px;
+	font-weight: normal;
+	color: #00008B;
+}
+
+#menu a:hover, #menu .current_page_item a {
+}
+
+#menu .current_page_item a {
+	padding-left: 0;
+}
+
+#menu a:hover {
+	text-decoration: underline;
+}
+
+
+
+#sidebar { 
+ display: inline;
+ color: #00008B;
+ background-color: #D1DBDB;
+ margin: 0px;
+ padding: 10px;
+ width: 195px;
+ float: left;
+}
+#sidebar ul {
+	padding: 0;
+	list-style: none;
+}
+
+#sidebar li {
+	margin: 0;
+	padding: 0;
+}
+#sidebar li ul {
+	margin-bottom: 10px;
+	padding: 0px 25px 5px 0px;
+}
+#sidebar li li {
+	line-height: 20px;
+	padding-left: 3px;
+}
+#sidebar li li span {
+	display: block;
+	margin-top: -20px;
+	padding: 0;
+	font-size: 11px;
+	font-style: italic;
+}
+#sidebar h2 {
+	margin-bottom: 20px;
+	padding: 12px 0px 0px 0px;
+	letter-spacing: -1px;
+}
+
+#sidebar p {
+	margin: 0px 0px 20px 0px;
+	padding: 0px 10px 5px 0px;
+	text-align: center;
+	color: #00008B;
+}
+#sidebar a {
+	color: #0000CC;
+}
+#sidebar a:hover {
+	text-decoration: underline;
+}
+#sidebar #void{
+	padding:10px;
+}
+#sidebar .void{
+	padding:5px;
+}
+
+div#content { 
+ float: right;
+ color: #333;
+ margin: 0px;
+ padding: 11px;
+ width: 685px;
+ display: inline;
+ position: relative;
+ background-color:#f1f1f1;
+}
+#content #void{
+	padding:0px 0px 21px 0px;
+}
+
+.post{
+ color: #333;
+ margin: 10px;
+ padding: 10px;
+ width: 650px;
+ position: relative;
+ background-color:#D1DBDB;
+ border: solid black 1px;
+ 	border-top-left-radius: 25px 25px;
+	border-top-right-radius: 25px 25px;
+	border-bottom-left-radius: 25px 25px;
+	border-bottom-right-radius: 25px 25px;
+
+}
+.post .title {
+	letter-spacing: -1px;
+	font-size: 38px;
+	color: #00008B;
+}
+
+.post .title a {
+	border: none;
+	color: #0000CC;
+}
+
+.post .meta {
+	padding-bottom: 5px;
+	text-align: left;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-style: italic;
+}
+
+.post .meta a {
+}
+
+.post .entry {
+	text-align: justify;
+}
+
+
+
+
+#footer { 
+ width: 902px;
+ clear: both;
+ color: #333;
+ background: #ABBEBE;
+ margin: 0px 0px 10px 0px;
+ padding: 10px;
+ text-align: center;
+}
+.clear { clear: both; background: none; }
+
+
+
+
+#search_form{
+	position: relative;
+	float: right;
+	width: 100px;
+	height: 20px;
+}
+input#search{
+	height:20px;
+	width: 200px;
+}
+#log_in_form {
+	float: right;
+	width: 550px;
+	height: 110px;
+	padding: 0;
+}
+#flash_notice, #flash_error, #flash_alert {
+  padding: 5px 8px;
+  margin: 10px 0;
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+  margin: 10px 30px 1px 30px;
+}
+
+#flash_notice, div#notice {
+  background-color: #CFC;
+  border: solid 1px #6C6;
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+  margin: 10px 30px 1px 30px;
+}
+
+#flash_error, #flash_alert {
+  background-color: #FCC;
+  border: solid 1px #C66;
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+  margin: 10px 30px 1px 30px;
+}
+div#alert{
+  color: white;
+  background-color: gray;  
+  width: 300px;
+  border: solid 2px crimson;
+  padding: 5px 10px;
+  clear: both;
+  border-radius: 10px;
+  padding: 5px 10px 5px 10px;
+  margin: 10px 30px 1px 30px;
+}
+
+
+#label, #label a{
+	color: #0000CC;
+}
+table{
+	align: center;
+	border-collapse:collapse;
+}
+th, td{
+	padding:15px;
+	text-align:center;
+}
+table, th, td, tr .grilla{
+	border: 1px solid black ;
+}
+
+div.rotado15{
+  transform:rotate(15deg);
+  -ms-transform:rotate(15deg); /* IE 9 */
+  -moz-transform:rotate(-22deg); /* Firefox */
+  -webkit-transform:rotate(15deg); /* Safari and Chrome */
+  -o-transform:rotate(15deg); /* Opera */
+}
+div.rotado-15{
+  transform:rotate(-15deg);
+  -ms-transform:rotate(-15deg); /* IE 9 */
+  -moz-transform:rotate(12deg); /* Firefox */
+  -webkit-transform:rotate(-10deg); /* Safari and Chrome */
+  -o-transform:rotate(-25deg); /* Opera */
+}
+
 
 /*
 Design by Free CSS Templates
 http://www.freecsstemplates.org
 Released for free under a Creative Commons Attribution 2.5 License
-*/
+* /
 
 body {
 	margin: 0;
@@ -57,7 +389,7 @@ a:hover {
 	padding: 0;
 }
 
-/* Header */
+/* Header * /
 
 #header {
 	width: 1000px;
@@ -65,7 +397,7 @@ a:hover {
 	margin: 0 auto;
 }
 
-/* Logo */
+/* Logo * /
 
 #logo {
 	float: left;
@@ -103,7 +435,7 @@ a:hover {
 	color: #FFFFFF;
 }
 
-/* Search */
+/* Search * /
 
 #search {
 	float: right;
@@ -139,7 +471,7 @@ a:hover {
 	height: 25px;
 }
 
-/* Menu */
+/* Menu * /
 
 #menu {
 	width: 960px;
@@ -184,7 +516,7 @@ a:hover {
 	text-decoration: underline;
 }
 
-/* Page */
+/* Page * /
 
 #page {
 	position:relative;
@@ -207,7 +539,7 @@ a:hover {
 	padding: 25px 0px 0px 0px;
 	clear: both;
 }
-/* Content */
+/* Content * /
 
 #content {
 	float: right;
@@ -267,7 +599,7 @@ a:hover {
 	font-weight:  bold;
 }
 
-/* Sidebar */
+/* Sidebar * /
 
 #sidebar {
 	float: left;
@@ -327,7 +659,7 @@ a:hover {
 	text-decoration: underline;
 }
 
-/* Calendar */
+/* Calendar * /
 
 #calendar {
 }
@@ -348,7 +680,7 @@ a:hover {
 	text-align: right;
 }
 
-/* Footer */
+/* Footer * /
 
 #footer-wrapper {
 	position:relative;
@@ -391,7 +723,7 @@ a:hover {
 	color: #BD5555;
 }
 
-/* Background */
+/* Background * /
 
 .bg1 {
 	background: url(/assets/img05.jpg ) repeat-y left top;

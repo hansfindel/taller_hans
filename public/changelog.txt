@@ -1,6 +1,18 @@
 Proyecto de iic2515_2011-2
 Creador: Hans
 
+version 0.0.9
+
+nuevo:
+* cambié el css
+
+mejoras:
+* 
+
+correcciones:
+* ahora funciona 
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 version 0.0.8
 Errores en castellano
 

@@ -1,9 +1,12 @@
+
+
+
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 
 <head>
-  <meta name="version" content='0.0.8' />
+  <meta name="version" content='0.0.9' />
   <meta name="nombre" content='skin' /> 
   <meta name="contenido" content='nuevo css' />
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -13,19 +16,19 @@
   <%= csrf_meta_tags %>
 </head>
 
-
 <body>
-
 <div id="wrapper">
+
 <% flash.each do |name, msg| %>
 	<%= content_tag :div, msg, :id => "#{name}"%>
 <% end %>
 
-  <div id="header">
-    <div id="logo">
-	  <h1>Taller Web</h1>
-	  <h2> </h2>
-    </div>
+<div id="header" class="upper-radius">
+<div id="logo">
+	<h2> </h2>
+	<h1>Taller Web</h1>
+</div>
+
     <div id="user_nav">
       <% if current_user %>
     	Logged in as <%= link_to current_user_name, current_user %> | 
@@ -35,28 +38,47 @@
         <%= link_to "Sign in", login_path%></p>   
       <% end %>
     </div>
-    <div id="menu">
-		<ul></ul>
-    </div>
+
+
 
 </div>
 
-<div id="page_new">
-		<div id="content_new">
-<%= yield %>
-        </div>
+ <div id="menu">
+		<ul></ul>
+  </div>		
 
-		<div id="sidebar">
+<div id="page">
+
+<div id="content">
+  <%= yield %>
+</div>
+
+<div id="sidebar">
 			<ul>
 				<li>
 					<h2>Aliquam tempus</h2>
 					<p>Mauris vitae nisl nec metus placerat perdiet est. Phasellus dapibus semper consectetuer hendrerit.</p>
 				</li>
+				
+				<li>
+					<div id="void">
+					</div>					
+				</li>
+					<li>
+					<h2>Aliquam tempus</h2>
+					<p>Mauris vitae nisl nec metus placerat perdiet est. Phasellus dapibus semper consectetuer hendrerit.</p>
+				</li>
+					<li>
+					<div id="void">
+					</div>	
+					<div class="void">
+					</div>					
+				</li>
 			</ul>
-		</div>
-		
-		
 </div>
+				
+</div>
+
 </div>
 </body>
 </html>

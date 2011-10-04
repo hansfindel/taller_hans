@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 
 
 <head>
-  <meta name="version" content='0.0.8' />
+  <meta name="version" content='0.0.9' />
   <meta name="nombre" content='skin' /> 
   <meta name="contenido" content='nuevo css' />
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
@@ -13,7 +13,6 @@
   <%= csrf_meta_tags %>
 </head>
 
-
 <body>
 <div id="wrapper">
 
@@ -21,29 +20,38 @@
 	<%= content_tag :div, msg, :id => "#{name}"%>
 <% end %>
 
-<div id="header">
+<div id="header" class="upper-radius">
 <div id="logo">
-	<h1>Taller Web</h1>
 	<h2> </h2>
+	<h1>Taller Web</h1>
 </div>
+</div>
+
  <div id="menu">
 		<ul></ul>
   </div>		
 
-<div id="page_white">
-<div id="content">
+<div id="page">
 
+<div id="content">
   <%= yield %>
 </div>
+
 <div id="sidebar">
 			<ul>
 				<li>
 					<h2>Aliquam tempus</h2>
 					<p>Mauris vitae nisl nec metus placerat perdiet est. Phasellus dapibus semper consectetuer hendrerit.</p>
 				</li>
+				
+				<li>
+					<div id="void">
+					</div>					
+				</li>
+				
 			</ul>
-	</div>			
 </div>
+				
 </div>
 
 </div>
