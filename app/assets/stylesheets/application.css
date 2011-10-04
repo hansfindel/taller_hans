@@ -356,14 +356,14 @@ a:hover {
 	margin: 1000px 0px 0px 0px;
 	height: 250px;
 	background: url(/assets/img02.gif) repeat-x left top;
-	background-color: red;
+	background-color: crimson;
 }
 #footer-wrapper-fake {
 	position:relative;
 	margin: 20% 0px 0px 0px;
 	height: 250px;
 	background: url(/assets/img02.gif) repeat-x left top;
-	background-color: red;	
+	background-color: crimson;	
 }
 
 
