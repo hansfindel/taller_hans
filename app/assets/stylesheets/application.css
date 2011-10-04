@@ -9,6 +9,7 @@ body {
 	margin: 0;
 	padding: 0;
 	background: #32281F url(img01.jpg) repeat-x left top;
+	background-color: red;	
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 14px;
 	color: #19130D;
@@ -355,12 +356,14 @@ a:hover {
 	margin: 1000px 0px 0px 0px;
 	height: 250px;
 	background: url(/assets/img02.gif) repeat-x left top;
+	background-color: red;
 }
 #footer-wrapper-fake {
 	position:relative;
 	margin: 20% 0px 0px 0px;
 	height: 250px;
 	background: url(/assets/img02.gif) repeat-x left top;
+	background-color: red;	
 }
 
 
@@ -370,6 +373,7 @@ a:hover {
 	margin: 0px auto;
 	padding: 0px 0px;
 	background: url(/assets/img03.gif) no-repeat left top;
+	background-color: red;
 	font-family: Arial, Helvetica, sans-serif;
 }
 
@@ -392,14 +396,17 @@ a:hover {
 
 .bg1 {
 	background: url(/assets/img05.jpg ) repeat-y left top;
+	background-color: bbb;
 }
 
 .bg2 {
-	background: url(img04.jpg ) no-repeat left top;
+	background: url(/assets/taller/img04.jpg ) no-repeat left top;
+	background-color: bbb;
 }
 
 .bg3 {
 	background: url(img06.jpg ) no-repeat left bottom;
+	background-color: bbb;
 }
 
 
