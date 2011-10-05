@@ -1,6 +1,18 @@
 Proyecto de iic2515_2011-2
 Creador: Hans
 
+version 0.1.0
+
+nuevo:
+* el css vuelve a ser http://www.freecsstemplates.org/preview/ridinghood/
+
+mejoras:
+* 
+
+correcciones:
+* 
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 version 0.0.9
 
 nuevo:
