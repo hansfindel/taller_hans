@@ -26,8 +26,8 @@
 
 <div id="user_nav">
   <% if current_user %>
-  	<div id="logo">Logged in as <%= link_to current_user_name, current_user %> | 
-  	  <%= link_to "Log out", logout_path%> 
+  	<div id="logo"><%= link_to current_user_name, current_user %> | 
+  	  <%= link_to "Salir", logout_path%> 
   	</div>
   <% else %>
   <div id="log_in_form" class="right">
@@ -40,8 +40,8 @@
        <%= submit_tag "ingresar" %>     
 	 <% end %> 
 	  	
-   <div class="right"><%= link_to "Register", sign_up_path%>
-     |<%= link_to "Sign in", login_path%>
+   <div class="right"><%= link_to "Registrarse", sign_up_path%>
+     |<%= link_to "Conectarse", login_path%>
    </div>
     
     </div>   		  
@@ -138,7 +138,7 @@
 	<div id="footer" class="bottom-radius">
 		<p>Copyright (c) 2011. Derechos reservados.</p> 
 		<p>Basado en <a href=" http://www.code-sucks.com/">Free CSS Templates</a></p>
-		<%= image_tag("rails.png") %>
+		<p><%= image_tag("rails.png") %></p>
 	</div>
 </div>
 <% end %>

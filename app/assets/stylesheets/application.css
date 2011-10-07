@@ -233,7 +233,7 @@ a:hover {
 	color: #FFFFFF;
 }
 
-.post .title a {
+.post .title a, .post h2.title {
 	border: none;
 	color: #54040D;
 }
@@ -354,14 +354,12 @@ a:hover {
 	margin: 85% 0px 0px 0px;
 	height: 250px;
 	background: url(/assets/img02.gif) repeat-x left top;
-	background-color: crimson;
 }
 #footer-wrapper-fake {
 	position:relative;
 	margin: 20% 0px 0px 0px;
 	height: 250px;
 	background: url(/assets/img02.gif) repeat-x left top;
-	background-color: crimson;	
 }
 
 
@@ -371,7 +369,6 @@ a:hover {
 	margin: 0px auto;
 	padding: 0px 0px;
 	background: url(/assets/img03.gif) no-repeat left top;
-	background-color: red;
 	font-family: Arial, Helvetica, sans-serif;
 	text-align:center;
 }
@@ -395,17 +392,14 @@ a:hover {
 
 .bg1 {
 	background: url(/assets/img05.jpg ) repeat-y left top;
-	background-color: bbb;
 }
 
 .bg2 {
 	background: url(/assets/taller/img04.jpg ) no-repeat left top;
-	background-color: bbb;
 }
 
 .bg3 {
 	background: url(img06.jpg ) no-repeat left bottom;
-	background-color: bbb;
 }
 
 
@@ -413,7 +407,7 @@ a:hover {
 #user_nav{
 	position: relative;
 	float: right;
-	margin-right: 10%;
+	margin-right: 5%;
 }
 #search_form{
 	position: relative;
@@ -428,6 +422,7 @@ input{
 input#search{
 	height:20px;
 	width: 200px;
+	margin-bottom:2px;
 }
 #log_in_form {
 	float: right;
@@ -466,6 +461,8 @@ div#alert{
 }
 #label, #label a{
 	color: white;
+	margin-top: 5px;
+	margin-left: 5px;
 }
 table{
 	align: center;
