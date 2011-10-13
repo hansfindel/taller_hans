@@ -1,0 +1,8 @@
+
+
+<%= nested_messages @comment.subtree.arrange(:order => :created_at) %>
+
+<div id="label">
+<%= link_to 'Editar', edit_comment_path(@comment) %> |
+<%= link_to 'Ver todos', comments_path %>
+</div>

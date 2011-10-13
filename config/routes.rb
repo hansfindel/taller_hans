@@ -1,6 +1,8 @@
 TallerHans::Application.routes.draw do
   
 
+  resources :comments
+
   get "home/index"
   get "home/home"
   get "sessions/new"

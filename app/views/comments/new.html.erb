@@ -1,0 +1,24 @@
+<% if @padre %>
+		<%= render @padre %>		
+<% end %>
+
+<div class="post">
+				<div class="bg1">
+					<div class="bg2">
+						<div class="bg3">
+<% if @padre %>
+	<h2 class="title">Nuevo comentario</h2>
+<% else %>
+	<h2 class="title">Nuevo Tema</h2>					
+<% end %>						
+
+		<div class="entry">
+<%= render 'form' %>
+ <div id="label">
+<%= link_to 'Ver todos', comments_path %>
+</div>
+</div>
+</div>
+  </div>
+</div>
+  </div>

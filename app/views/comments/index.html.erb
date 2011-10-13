@@ -1,0 +1,10 @@
+<%= nested_messages @comments.arrange(:order => :created_at) %>
+
+<br />
+<% if current_user && profesor? %>
+	<% if can? :create, Comment  %>
+<div id="label">
+<%= link_to 'Nuevo Commentario', new_comment_path %>
+</div>
+<% end %>
+<% end %>

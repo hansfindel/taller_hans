@@ -1,0 +1,36 @@
+<%= form_for @comment, :validate => true do |f| %>
+  <% if @comment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@comment.errors.count, "error") %> prohibited this comment from being saved:</h2>
+
+      <ul>
+      <% @comment.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  
+<%= f.hidden_field :parent_id %>
+  
+  <div class="field">
+    <%= f.label :title, "Titulo" %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :content, "" %><br />
+    <%= f.text_area :content %>
+  </div>
+  
+  <% if @comment.parent %>
+  <div class="field">
+    <%= f.label :calification, "Nota del comentario padre" %><br />
+    <%= f.text_field :calification %>
+  </div>
+  <% end %>
+  
+  
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

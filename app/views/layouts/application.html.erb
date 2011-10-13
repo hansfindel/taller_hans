@@ -3,11 +3,11 @@
 
 
 <head>
-  <meta name="version" content='0.1.0' />
-  <meta name="nombre" content='skin' /> 
-  <meta name="contenido" content='nuevo css' />
+  <meta name="version" content='0.1.1' />
+  <meta name="nombre" content='comentarios' /> 
+  <meta name="contenido" content='se pueden hacer comentarios' />
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <title>TallerHans</title>
+  <title> TallerHans</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -20,7 +20,7 @@
 
 <div id="logo">
 	<h2> </h2>
-	<h1>Taller Web</h1>
+	<h1><%= link_to "Taller Web", home_url %></h1>
 	<p> iic2515</p>
 </div>
 
@@ -53,7 +53,10 @@
   
   <div id="menu">
 		<ul>
+		    <li><%= link_to "Temas", comments_path %></li>		
+		<% if current_user  %>
 			<li><%= link_to "Home", home_path %></li>
+		<% end %>
 <% if can? :create, Course  %>
 	<li><%= link_to "añadir cursos", new_course_path %></li>
 	<li><%= link_to "asignar profesor", profesors_path %></li> 
@@ -126,14 +129,14 @@
 
 </div>
 
-<% if current_user %>
+<% if current_user && @footer%>
 <div id="footer-wrapper">
 	<div id="footer" class="bottom-radius">
 		<p>Copyright (c) 2011. Derechos reservados.</p>
 		<p> Basado en <a href=" http://www.code-sucks.com/">Free CSS Templates</a></p>
 	</div>
 </div>
-<% else %>
+<% elsif @footer %>
 <div id="footer-wrapper-fake" >
 	<div id="footer" class="bottom-radius">
 		<p>Copyright (c) 2011. Derechos reservados.</p> 

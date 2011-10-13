@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-   helper_method :current_user, :current_user_name, :authorize_post
+   helper_method :current_user, :current_user_name, :authorize_post, :profesor?
    helper_method :admin, :authorize, :update_time
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => exception.message
@@ -18,6 +18,14 @@ class ApplicationController < ActionController::Base
   	  ##	end_session
   	  ##	redirect_to login_path, :notice => 'Unauthorized access'
   	 #end
+  end
+  
+  def profesor?
+	if current_user.type_id == 2
+		true
+	else
+		false
+	end
   end
   
   def current_user_name

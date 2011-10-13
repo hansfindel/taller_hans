@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
 	belongs_to :type
 	has_many :login_failures
+	has_many :comments
 	
 	has_many :alumns
 	has_many :courses, :through => :alumns

@@ -1,6 +1,22 @@
 Proyecto de iic2515_2011-2
 Creador: Hans
 
+version 0.1.1
+
+nuevo:
+* Hay comentarios
+    Solo los profesores pueden crear "nuevos" temas
+    Todos pueden comentar estos temas o sus comentarios asociados
+    Los comentarios son calificados y califican a sus padres
+* Se verifican los respectivos permisos
+
+mejoras:
+* 
+
+correcciones:
+* 
+
+- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - 
 version 0.1.0
 
 nuevo:

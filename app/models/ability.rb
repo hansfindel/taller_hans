@@ -23,6 +23,8 @@ class Ability
 			c.profesors.where(:user_id => user.id)
 		end
 		
+		can [:read, :create], [Comment, @comments]
+		
 		cannot [:update, :create], [@profesor, @alumn, @course]
 		
 	else
@@ -32,6 +34,8 @@ class Ability
 		cannot [:read, :update, :create], [Profesor, Alumn, Course]
 		cannot [:index], User
 		#can :update,:comment if self!
+		can :create, Comment, :parent
+		can :read, Comment
 	end  	
   	
     # Define abilities for the passed in user here. For example:

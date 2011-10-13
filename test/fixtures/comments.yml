@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/Fixtures.html
+
+one:
+  title: MyString
+  content: MyText
+  user_id: 1
+  my_grade: 1.5
+  calification: 1.5
+
+two:
+  title: MyString
+  content: MyText
+  user_id: 1
+  my_grade: 1.5
+  calification: 1.5

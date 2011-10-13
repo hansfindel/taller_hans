@@ -223,7 +223,7 @@ a:hover {
 
 .post {
 	position: relative;
-	margin-bottom: 25px;
+	margin-top: 20px;
 }
 
 .post .title {
@@ -236,6 +236,7 @@ a:hover {
 .post .title a, .post h2.title {
 	border: none;
 	color: #54040D;
+	padding-top: 1px
 }
 
 .post .meta {
@@ -464,6 +465,15 @@ div#alert{
 	margin-top: 5px;
 	margin-left: 5px;
 }
+#label2 a{
+	color: black;
+	position: relative;
+	float: right;
+	margin-top: 5px;
+	margin-left: 5px;
+	margin-bottom: 5px;
+	margin-right: 5px;
+}
 table{
 	align: center;
 	border-collapse:collapse;
@@ -479,6 +489,34 @@ span.comentario{
 	font-size: 8px;
 	background-color:white;
 	color:gray;
+}
+
+.nested_messages .post{
+  margin-top: 0px; 
+}
+.nested_messages {
+  margin-left: 30px;
+  margin-top: 5px;
+  
+}
+.nested_messages .nested_messages .nested_messages .nested_messages {
+  margin-left: 0;
+}
+
+textarea{
+	width: 500px;
+	border-radius: 5px;
+	resize: none;
+}
+div.nota{
+	float:right;
+	font-size: 18px;
+	color: #54040D;
+}
+div.calification{
+	padding: 5px;
+	font-size: 10px;
+	color: white;
 }
 
 /*

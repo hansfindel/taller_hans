@@ -30,6 +30,8 @@ GEM
       activesupport (= 3.1.0)
     activesupport (3.1.0)
       multi_json (~> 1.0)
+    ancestry (1.2.4)
+      activerecord (>= 2.2.2)
     arel (2.2.1)
     bcrypt-ruby (3.0.1)
     bcrypt-ruby (3.0.1-x86-mingw32)
@@ -117,6 +119,7 @@ PLATFORMS
   x86-mingw32
 
 DEPENDENCIES
+  ancestry
   bcrypt-ruby
   cancan
   client_side_validations

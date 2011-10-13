@@ -30,6 +30,8 @@ group :production do
 end
 
 gem 'kaminari'
+gem 'ancestry'
+
 
 # Use unicorn as the web server
 # gem 'unicorn'
