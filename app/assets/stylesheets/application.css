@@ -511,6 +511,7 @@ textarea{
 div.nota{
 	float:right;
 	font-size: 18px;
+	margin-top: -30px;
 	color: #54040D;
 }
 div.calification{
