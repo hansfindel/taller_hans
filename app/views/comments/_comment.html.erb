@@ -9,11 +9,11 @@
    		   <% end %> 					
 	<h2 class="title"><%= link_to comment.title, comment %></h2>
 		<div class="entry">
-		   <p class="meta"> Posteado por <%= comment.user.username %> <br />
-		    <%= comment.commented_on %> </p>
+		   <p class="meta"> <%= comment.commented_on %>. Posteado por <%= comment.user.username %> 
+		     </p>
 		   <% if comment.my_grade && current_user %>
    			<div class="nota">
-     			<%= comment.my_grade %>
+     			<%= number_with_precision comment.my_grade, :precision => 2 %>
    			</div>
    		   <% end %> 
       
@@ -21,15 +21,15 @@
   <div class="content">
    
   <div class="texto">
-    <%= simple_format link_to comment.content, comment %>
+    <%= simple_format comment.content %>
    </div>   
    </div>
-  
+
   <div id="label2">
   <% if current_user %>
     <%= link_to "Responder", new_comment_path(:parent_id => comment) %> 
     <% if can? :destroy, comment %> |
-      <%= link_to "Destroy", comment, :confirm => "Are you sure?", :method => :delete %>
+      <%= link_to "Destroy", comment, :confirm => "Esta seguro?", :method => :delete %>
     <% end %>
   <% end %>    
   </div>

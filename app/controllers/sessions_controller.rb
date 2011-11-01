@@ -38,7 +38,7 @@ class SessionsController < ApplicationController
 	  			session[:session_token] = BCrypt::Engine.generate_salt
 	  			user.session_token = session[:session_token]
 	  			user.save!
-	  			redirect_to home_path, :notice => "Logged in!"
+	  			redirect_to home_path, :notice => "Te has conectado exitosamente!"
 	  		else
 	  			LoginFailure.create(:user_id => id)
 	  			if @next_time 			
@@ -61,7 +61,7 @@ class SessionsController < ApplicationController
   
   def destroy
   	session[:user_id] = nil
-  	redirect_to  root_url, :notice => "logged out"
+  	redirect_to  root_url, :notice => "Exitosamente desautenticado"
   end  
   
 end

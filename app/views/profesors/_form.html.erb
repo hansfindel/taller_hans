@@ -12,12 +12,13 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.text_field :user_id %>
+    <%= f.label :user_id, "Profesor" %><br />
+    <%= collection_select(:profesor, :user_id, @profesors, :id, :username) %>
+    
   </div>
   <div class="field">
-    <%= f.label :course_id %><br />
-    <%= f.text_field :course_id %>
+    <%= f.label :course_id, "Curso" %><br />
+     <%= collection_select(:profesor, :course_id, @cursos, :id, :curso) %>
   </div>
   <div class="actions">
     <%= f.submit %>

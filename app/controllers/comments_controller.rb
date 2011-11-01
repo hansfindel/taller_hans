@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
   # GET /comments
   # GET /comments.json
+
   def index
     @comments = Comment.scoped
     @comment = Comment.new
@@ -61,9 +62,8 @@ class CommentsController < ApplicationController
       	if @comment.parent
       		@comment.parent.mi_nota
       		@comment.parent.save 
-  	    end
-  	    
-        format.html { redirect_to @comment, :notice=> 'Comment was successfully created.' }
+  	    end  	    
+        format.html { redirect_to comments_path, :notice=> 'Comentario creado.' }
         format.json { render :json=> @comment, :status=> :created, :location=> @comment }
       else
         format.html { render :action=> "new" }
@@ -86,7 +86,7 @@ class CommentsController < ApplicationController
       		@comment.parent.mi_nota
       		@comment.parent.save 
   	    end
-        format.html { redirect_to @comment, :notice=> 'Comment was successfully updated.' }
+        format.html { redirect_to @comment, :notice=> 'Commentario actualizado' }
         format.json { head :ok }
       else
         format.html { render :action=> "edit" }

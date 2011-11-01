@@ -10,8 +10,9 @@ class User < ActiveRecord::Base
 	has_many :courses, :through => :profesors
 	
 	attr_accessible :username, :email, :password, :password_confirmation, :rut, :type_id, :verificador, :active
-	attr_accessor :password, :verificador
+	attr_accessor :old_password, :password, :verificador
 	before_save :encrypt_password
+	before_save :validate_old_password
 	
 	validates_presence_of :username, :password, :email, :rut, :verificador, :on => :create, :message => "debe estar presente"
 	validates_confirmation_of :password, :on => :create, :message => "no se hace match con el password"
@@ -41,6 +42,18 @@ class User < ActiveRecord::Base
     				  
     validate :validar_rut, :message=> "no calza el digito verificador",  :on => :create
 	
+	def validate_old_password
+		if old_password.present?
+			if sup_encrypt(old_password, self.password_salt) == self.password_hash
+				true
+			else
+				false
+			end
+		else 
+			true	
+		end
+	end
+			
 	def encrypt_password
  		if password.present?
  			self.password_salt = BCrypt::Engine.generate_salt
@@ -99,7 +112,7 @@ class User < ActiveRecord::Base
  	end	
  	
  	def validar_rut
- 		errors.add(:verificador, "doesn't match") if verificador != dv(rut) 
+ 		errors.add(:verificador, "no calza") if verificador != dv(rut) 
  	end
  	
    def dv(rut)

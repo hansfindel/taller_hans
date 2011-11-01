@@ -3,7 +3,7 @@ class ApplicationController < ActionController::Base
    helper_method :current_user, :current_user_name, :authorize_post, :profesor?
    helper_method :admin, :authorize, :update_time
   rescue_from CanCan::AccessDenied do |exception|
-    redirect_to root_url, :alert => exception.message
+    redirect_to root_url, :alert => "No tienes los permisos adecuados"
   end
   #check_authorization
   private

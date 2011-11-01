@@ -18,18 +18,18 @@
 </p>
 
 <p>
-  <b>Username:</b>
+  <b>Nombre de usuario:</b>
   <%= @user.username %>
 </p>
 
 <p>
-  <b>Email:</b>
+  <b>Correo electrónico:</b>
   <%= @user.email %>
 </p>
 
 <p>
   <b>Type:</b>
-  <%= @user.type_id %>
+  <%= @user.type.type_name %>
 </p>
 
 <% if can? :create, Course %>

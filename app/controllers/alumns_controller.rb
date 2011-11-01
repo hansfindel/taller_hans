@@ -26,7 +26,9 @@ class AlumnsController < ApplicationController
   # GET /alumns/new.json
   def new
     @alumn = Alumn.new
-
+ 	@alumns = User.where(:type_id => 1)
+    @cursos = Course.all
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render :json=> @alumn }
@@ -36,12 +38,19 @@ class AlumnsController < ApplicationController
   # GET /alumns/1/edit
   def edit
     @alumn = Alumn.find(params[:id])
+    @alumns = User.where(:type_id => 1)
+    @cursos = Course.all
   end
 
   # POST /alumns
   # POST /alumns.json
   def create
     @alumn = Alumn.new(params[:alumn])
+    
+    uid = params[:alumn][:user_id]
+	cid = params[:alumn][:course_id]
+	@alumn.user_id = uid
+	@alumn.course_id = cid
 
     respond_to do |format|
       if @alumn.save
@@ -58,6 +67,11 @@ class AlumnsController < ApplicationController
   # PUT /alumns/1.json
   def update
     @alumn = Alumn.find(params[:id])
+
+	uid = params[:alumn][:user_id]
+	cid = params[:alumn][:course_id]
+	@alumn.user_id = uid
+	@alumn.course_id = cid
 
     respond_to do |format|
       if @alumn.update_attributes(params[:alumn])

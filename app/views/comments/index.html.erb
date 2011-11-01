@@ -1,4 +1,6 @@
-<%= nested_messages @comments.arrange(:order => :created_at) %>
+<% @comments.each do |com| %>
+	<%= render com if com.parent_id==nil %>
+<% end %>
 
 <br />
 <% if current_user && profesor? %>

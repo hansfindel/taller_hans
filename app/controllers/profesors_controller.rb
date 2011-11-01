@@ -26,6 +26,8 @@ class ProfesorsController < ApplicationController
   # GET /profesors/new.json
   def new
     @profesor = Profesor.new
+    @profesors = User.where(:type_id => 2)
+    @cursos = Course.all
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,13 +38,20 @@ class ProfesorsController < ApplicationController
   # GET /profesors/1/edit
   def edit
     @profesor = Profesor.find(params[:id])
+    @profesors = User.where(:type_id => 2)
+    @cursos = Course.all
   end
 
   # POST /profesors
   # POST /profesors.json
   def create
     @profesor = Profesor.new(params[:profesor])
-
+	
+	uid = params[:profesor][:user_id]
+	cid = params[:profesor][:course_id]
+	@profesor.user_id = uid
+	@profesor.course_id = cid
+	
     respond_to do |format|
       if @profesor.save
         format.html { redirect_to @profesor, :notice=> 'Profesor was successfully created.' }
@@ -58,7 +67,12 @@ class ProfesorsController < ApplicationController
   # PUT /profesors/1.json
   def update
     @profesor = Profesor.find(params[:id])
-
+    
+	uid = params[:profesor][:user_id]
+	cid = params[:profesor][:course_id]
+	@profesor.user_id = uid
+	@profesor.course_id = cid
+	
     respond_to do |format|
       if @profesor.update_attributes(params[:profesor])
         format.html { redirect_to @profesor, :notice=> 'Profesor was successfully updated.' }

@@ -18,8 +18,8 @@
 <% @alumns.each do |alumn| %>
   <tr>
     <td><%= alumn.id %></td>  
-    <td><%= alumn.user_id %></td>
-    <td><%= alumn.course_id %></td>
+    <td><%= alumn.user.username %></td>
+    <td><%= alumn.course.curso %></td>
     <td><%= link_to 'Show', alumn %>
     <%= link_to 'Edit', edit_alumn_path(alumn) %></td>
   </tr>

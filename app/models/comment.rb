@@ -14,7 +14,7 @@ class Comment < ActiveRecord::Base
  	elsif self.created_at > 5.minutes.ago
  		"Comentado hace menos de 5 minutos"	
 	else
-		self.created_at.strftime("%d %b %Y") 
+		self.created_at.strftime("%d %m %Y") 
 	end
   end
   
