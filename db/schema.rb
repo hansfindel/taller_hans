@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111012190309) do
+ActiveRecord::Schema.define(:version => 20111102202714) do
 
   create_table "alumns", :force => true do |t|
     t.integer  "user_id"
@@ -29,6 +29,11 @@ ActiveRecord::Schema.define(:version => 20111012190309) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "ancestry"
+    t.string   "archivo_file_name"
+    t.string   "archivo_content_type"
+    t.integer  "archivo_file_size"
+    t.datetime "archivo_updated_at"
+    t.boolean  "oculto"
   end
 
   add_index "comments", ["ancestry"], :name => "index_comments_on_ancestry"

@@ -32,6 +32,7 @@ end
 gem 'kaminari'
 gem 'ancestry'
 
+gem 'paperclip'
 
 # Use unicorn as the web server
 # gem 'unicorn'

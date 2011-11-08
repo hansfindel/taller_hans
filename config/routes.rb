@@ -24,6 +24,10 @@ TallerHans::Application.routes.draw do
 
   get "lista/users" => "users#lista", :as => 'lista'
   get "reset_password/:id" => "users#reset_password"
+  
+  
+  match 'comments/:id/ocultar' => 'comments#ocultar', :as => 'ocultar'
+  
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

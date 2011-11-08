@@ -29,8 +29,12 @@
   </div>
   <% end %>
   
+  <div>
+  	<%= f.label :archivo, "Archivo" %>
+    <%= f.file_field :archivo %>
+  </div>
   
   <div class="actions">
-    <%= f.submit, "Enviar" %>
+    <%= f.submit "Enviar" %>
   </div>
 <% end %>

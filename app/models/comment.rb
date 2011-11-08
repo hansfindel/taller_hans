@@ -3,6 +3,10 @@ class Comment < ActiveRecord::Base
 	belongs_to :user
 	before_save :calcular_nota
 	
+	has_attached_file :archivo, 
+          :url  => "/assets/archivos/:id/:basename.:extension",
+          :path => ":rails_root/public/assets/archivos/:id/:basename.:extension"
+
 	
 	validates_presence_of :title, :content, :on => :save, :message => "Debe estar presente"
 	validates_numericality_of :calification, :message => "Debe tener una nota"
@@ -47,5 +51,18 @@ class Comment < ActiveRecord::Base
 			false
 		end
 	end 	
+  
+  	def destruir
+  		if self.is_childless?
+  			self.destroy
+  		else
+  			self.children.each do |com|
+  				com.destruir
+  			end
+  			self.destroy
+  		end
+  	end
+  	
+  	
   
 end

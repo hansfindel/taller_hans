@@ -1,5 +1,7 @@
 <% @comments.each do |com| %>
+   <% if can_see(com)  %>
 	<%= render com if com.parent_id==nil %>
+   <% end %>  
 <% end %>
 
 <br />

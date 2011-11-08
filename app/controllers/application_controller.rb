@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
    helper_method :current_user, :current_user_name, :authorize_post, :profesor?
-   helper_method :admin, :authorize, :update_time
+   helper_method :admin, :admin?, :authorize, :update_time
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => "No tienes los permisos adecuados"
   end
@@ -68,6 +68,15 @@ class ApplicationController < ActionController::Base
   		false 
   	else
   		true
+  	end
+  end
+  
+  def admin?
+  	user = current_user
+  	if user && user.username && user.username.eql?("admin")
+  		return true
+  	else 
+  		return false
   	end
   end
  

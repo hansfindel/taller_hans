@@ -1,4 +1,5 @@
 class CommentsController < ApplicationController
+ load_and_authorize_resource
   # GET /comments
   # GET /comments.json
 
@@ -56,6 +57,7 @@ class CommentsController < ApplicationController
 	if !@comment.calification
 		@comment.calification = 1
 	end
+	@comment.oculto = false
 	
     respond_to do |format|
       if @comment.save
@@ -98,12 +100,33 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
-    @comment = Comment.find(params[:id])
-    @comment.destroy
+     @comment = Comment.find(params[:id])
+	if @comment.is_root?
+		@comment.destroy
+		redirect_to comments_path
+		return
+	end
+	@destino = @comment.root
+	@padre = @comment.parent
+	@padre.mi_nota
+	@comment.destruir
 
     respond_to do |format|
-      format.html { redirect_to comments_url }
+      format.html { redirect_to @destino }
       format.json { head :ok }
     end
   end
+ 
+   def ocultar
+     @comment = Comment.find(params[:id])
+	 @comment.oculto = true
+	 @destino = @comment.root
+
+    respond_to do |format|
+      format.html { redirect_to @destino }
+      format.json { head :ok }
+    end
+  end
+  
+ 
 end

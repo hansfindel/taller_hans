@@ -7,7 +7,10 @@
      			Nota del comentario: <%= comment.calification %>
    			</div>
    		   <% end %> 					
-	<h2 class="title"><%= link_to comment.title, comment %></h2>
+	<h2 class="title"><%= link_to comment.title, comment %> </h2>
+	<% if comment.oculto %>
+	<p>Oculto</p>
+	<% end %>
 		<div class="entry">
 		   <p class="meta"> <%= comment.commented_on %>. Posteado por <%= comment.user.username %> 
 		     </p>
@@ -24,12 +27,17 @@
     <%= simple_format comment.content %>
    </div>   
    </div>
-
+<% if comment.archivo && comment.archivo.size && comment.archivo.size > 0 %>
+	  <%= link_to "Ver archivo adjunto", comment.archivo.url %>
+<% end %>
   <div id="label2">
   <% if current_user %>
     <%= link_to "Responder", new_comment_path(:parent_id => comment) %> 
-    <% if can? :destroy, comment %> |
-      <%= link_to "Destroy", comment, :confirm => "Esta seguro?", :method => :delete %>
+    <% if can? :destroy, comment %> 
+      <%= link_to "Destruir", comment, :confirm => "Esta seguro?", :method => :delete %>
+    <% end %>
+    <% if can? :manage, :all %> 
+      <%= link_to "Ocultar", ocultar_path(comment.id) %>
     <% end %>
   <% end %>    
   </div>

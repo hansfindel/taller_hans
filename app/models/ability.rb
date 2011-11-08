@@ -12,6 +12,7 @@ class Ability
 		can :manage, :all
 		can :create, Profesor
 		cannot :destroy, :all
+		can :destroy, Comment
 	
 		
 	elsif type && type.type_name == 'Profesor'
@@ -22,9 +23,14 @@ class Ability
 		can :read, Course do |c| 
 			c.profesors.where(:user_id => user.id)
 		end
+		cannot :manage, Comment do |c|
+			c.oculto = true
+		end
 		
 		can [:read, :create], [Comment, @comments]
-		
+		can :destroy, Comment do |comment|
+			comment.root.id = user.id
+		end 
 		cannot [:update, :create], [@profesor, @alumn, @course]
 		
 	else
@@ -36,6 +42,11 @@ class Ability
 		#can :update,:comment if self!
 		can :create, Comment, :parent
 		can :read, Comment
+		
+		cannot :manage, Comment do |c|
+			c.oculto = true
+		end
+		
 	end  	
   	
     # Define abilities for the passed in user here. For example:
