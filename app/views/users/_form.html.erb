@@ -22,11 +22,11 @@
     <%= f.email_field :email %>
   </div>
   <div class="field">
-    <%= f.label :type_id %><br />
+    <%= f.label :type_id, "Tipo" %><br />
     <%= f.collection_select :type_id, Type.all, :id, :type_name, :prompt => false %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Enviar" %>
   </div>
   
 <% end %>

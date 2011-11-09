@@ -2,7 +2,8 @@ class SessionsController < ApplicationController
 	
 	
   def new
-  	render :layout => 'blanco'
+  	@again=true
+  	render :layout => 'blanco'  	
   end
   
   def create
@@ -29,7 +30,13 @@ class SessionsController < ApplicationController
 	 			@entries=var
 	 		end
 	 	end
-	  	if user || id
+	 	if params[:holo] and !verify_recaptcha(:message => "Oh! Hay un error en el reCAPTCHA!")
+		 	flash.now.alert = "Hay un error en el reCAPTCHA"
+	 		render "new"
+	 		return
+	 	end
+	 	
+	  	if (user || id)
 	  		if @next_time
 	  			flash.now.alert = "Try again in "+@next_time.to_s+" minutes"
 	  			render "new"

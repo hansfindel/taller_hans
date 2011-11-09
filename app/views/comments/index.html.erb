@@ -1,3 +1,8 @@
+<% content_for :title, "TallerHans | Temas" %>
+<% content_for :log, true %>
+
+
+
 <% @comments.each do |com| %>
    <% if can_see(com)  %>
 	<%= render com if com.parent_id==nil %>
@@ -5,10 +10,12 @@
 <% end %>
 
 <br />
+
 <% if current_user && profesor? %>
 	<% if can? :create, Comment  %>
 <div id="label">
 <%= link_to 'Nuevo Commentario', new_comment_path %>
 </div>
+
 <% end %>
 <% end %>

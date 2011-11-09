@@ -28,7 +28,7 @@
 </p>
 
 <p>
-  <b>Type:</b>
+  <b>Tipo:</b>
   <%= @user.type.type_name %>
 </p>
 
@@ -36,19 +36,20 @@
 	
 <p>
   <b>Ingresado en:</b>
-  <%= @user.created_at %>
+  <%= @user.since(@user.created_at) %>
 </p>
 
 <p>
   <b>Ultima actualización:</b>
-  <%= @user.updated_at %>
+  <%= @user.since(@user.updated_at) %>
 </p>
+
 <% if @user.password_reset_token %>
 <div>
   <b>Ultima recuperación:</b><br />
   <ul>
   <li><b>Token:</b> <%= @user.password_reset_token %></li>
-  <li><b>Fecha:</b> <%= @user.password_reset_sent_at %></li>
+  <li><b>Fecha:</b> <%= @user.since(@user.password_reset_sent_at) %></li>
   </ul>     
 </div>
 <% end %>

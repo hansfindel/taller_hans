@@ -29,7 +29,7 @@ class CommentsController < ApplicationController
   # GET /comments/new.json
   def new
     @comment = Comment.new(:parent_id => params[:parent_id])
-	
+
     if params[:parent_id]
 		@padre = Comment.find(params[:parent_id]) 
     else

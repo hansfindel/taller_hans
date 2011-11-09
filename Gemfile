@@ -23,6 +23,8 @@ gem 'client_side_validations'
 
 gem 'bcrypt-ruby', :require => "bcrypt"
 gem 'cancan'
+gem 'pjax_rails'
+gem 'recaptcha', :require => "recaptcha/rails"
 
 group :production do
   gem 'execjs'

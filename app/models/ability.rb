@@ -23,7 +23,7 @@ class Ability
 		can :read, Course do |c| 
 			c.profesors.where(:user_id => user.id)
 		end
-		cannot :manage, Comment do |c|
+		cannot [:show, :update], Comment do |c|
 			c.oculto = true
 		end
 		
@@ -33,20 +33,27 @@ class Ability
 		end 
 		cannot [:update, :create], [@profesor, @alumn, @course]
 		
-	else
+	elsif type && type.type_name == 'Alumno'
 		#can :read, :all
 		can :create, User
 		can [:read, :update], [User, @user], :id => user.id
 		cannot [:read, :update, :create], [Profesor, Alumn, Course]
 		cannot [:index], User
 		#can :update,:comment if self!
-		can :create, Comment, :parent
-		can :read, Comment
 		
-		cannot :manage, Comment do |c|
+		can [:read, :index], [Comment, @comments]
+		
+		can :create, [Comment, @comment] 
+		
+		cannot [:show, :update], Comment do |c|
 			c.oculto = true
 		end
-		
+	else 
+		can :create, User
+		cannot [:read, :update, :create], [Profesor, Alumn, Course]
+		cannot [:index], User
+		cannot [:create], [Comment]
+		can [:read, :index], [Comment, @comments]
 	end  	
   	
     # Define abilities for the passed in user here. For example:

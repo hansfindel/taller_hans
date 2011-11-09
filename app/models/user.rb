@@ -145,7 +145,7 @@ class User < ActiveRecord::Base
   def send_password_reset
     generate_token(:password_reset_token)
     self.password_reset_sent_at = Time.zone.now
-    save!
+    self.save!
     UserMailer.password_reset(self).deliver
   end
 
@@ -162,5 +162,16 @@ class User < ActiveRecord::Base
   		scoped
   	end
   end 
+  
+  def since(value)
+ 	if value > 1.minute.ago
+ 		"Hace pocos segundos"
+ 	elsif value > 5.minutes.ago
+ 		"Hace menos de 5 minutos"	
+	else
+		value.strftime("%d-%m-%Y") 
+	end
+  end
+  
   
 end

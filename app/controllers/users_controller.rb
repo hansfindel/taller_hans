@@ -102,7 +102,7 @@ class UsersController < ApplicationController
     
  	respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, :notice => 'Actualizada.' }
+        format.html { redirect_to @user, :notice => 'Datos actualizados.' }
         format.json { head :ok }
       else
         format.html { render :action => "edit" }
