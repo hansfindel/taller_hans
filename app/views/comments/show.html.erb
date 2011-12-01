@@ -5,3 +5,17 @@
 <%= link_to 'Editar', edit_comment_path(@comment) %> |
 <%= link_to 'Ver todos', comments_path %>
 </div>
+   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+      
+<script type="text/javascript">
+$("h2 span.oculto").hide();
+$("h2.title a").mouseenter(function(){
+  $("h2 span.oculto").show();
+});
+$("h2.title a").mouseleave(function(){
+  $("h2 span.oculto").hide();
+});
+
+
+</script>

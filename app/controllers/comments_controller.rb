@@ -100,12 +100,14 @@ class CommentsController < ApplicationController
   # DELETE /comments/1
   # DELETE /comments/1.json
   def destroy
-     @comment = Comment.find(params[:id])
+    @comment = Comment.find(params[:id])
+    
 	if @comment.is_root?
-		@comment.destroy
+		@comment.destruir
 		redirect_to comments_path
 		return
 	end
+	
 	@destino = @comment.root
 	@padre = @comment.parent
 	@padre.mi_nota
@@ -115,11 +117,44 @@ class CommentsController < ApplicationController
       format.html { redirect_to @destino }
       format.json { head :ok }
     end
+    
   end
+ 
+   def destruir
+    @comment = Comment.find(params[:id])
+    
+	if @comment.is_root?
+		@comment.destruir
+		redirect_to comments_path
+		return
+	end
+	
+	@destino = @comment.root
+	@padre = @comment.parent
+	@comment.destruir
+	@padre.mi_nota
+	@padre.children.each do |c|
+		c.mi_nota
+	end
+
+
+    respond_to do |format|
+      format.html { redirect_to @destino }
+      format.json { head :ok }
+    end
+    
+  end
+ 
+ 
  
    def ocultar
      @comment = Comment.find(params[:id])
-	 @comment.oculto = true
+	 if @comment.oculto == nil 
+	   @comment.oculto = true 
+	 elsif 
+	   @comment.oculto = !@comment.oculto
+	 end
+	 @comment.save
 	 @destino = @comment.root
 
     respond_to do |format|

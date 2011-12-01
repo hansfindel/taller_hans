@@ -35,8 +35,10 @@ class UsersController < ApplicationController
   # GET /users/1
   # GET /users/1.json
   def show
-    @user = User.find(params[:id])
+  	@user = User.where(:username => params[:username]).first
+    @user ||= User.find(params[:id])
 
+	@intervenciones = @user.comments
 	cursos = Alumn.where(:user_id => @user.id)
 	ids = Array.new
 	cursos.each do |curso|
@@ -64,7 +66,8 @@ class UsersController < ApplicationController
 
   # GET /users/1/edit
   def edit
-    @user = User.find(params[:id])
+  	@user = User.where(:username => params[:username]).first
+    @user ||= User.find(params[:id])
   end
 
   # POST /users
@@ -84,7 +87,7 @@ class UsersController < ApplicationController
 	end 
     respond_to do |format|
       if @user.save
-        format.html { redirect_to @user, :notice => 'Usuario creado.' }
+        format.html { redirect_to @user, :notice => 'Usuario creado' }
         format.json { render :json => @user, :status => :created, :location => @user }
       else
         format.html { render :action => "new" }
@@ -96,13 +99,14 @@ class UsersController < ApplicationController
   # PUT /users/1
   # PUT /users/1.json
   def update
-    @user = User.find(params[:id])
+  	@user = User.where(:username => params[:username]).first
+    @user ||= User.find(params[:id])
 	
  	@user.active=true	if @user.username.eql?("admin")
     
  	respond_to do |format|
       if @user.update_attributes(params[:user])
-        format.html { redirect_to @user, :notice => 'Datos actualizados.' }
+        format.html { redirect_to @user, :notice => 'Usuario actualizado' }
         format.json { head :ok }
       else
         format.html { render :action => "edit" }

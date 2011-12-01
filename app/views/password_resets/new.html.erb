@@ -1,9 +1,22 @@
-<h2>Reset Password</h2>
+<div class="post">
+				<div class="bg1">
+					<div class="bg2">
+						<div class="bg3">
 
+<h2  class="title">Cambiar Contraseña</h2>
+
+<div class="entry">
 <%= form_tag password_resets_path, :method => :post do %>
   <div class="field">
-    <%= label_tag :email %>
+    <%= label_tag :email, "Mail" %>
     <%= text_field_tag :email, params[:email] %>
   </div>
-  <div class="actions"><%= submit_tag "Reset Password" %></div>
+  <div class="actions" style="margin-left:30px;"><%= submit_tag "Cambiar contraseña" %></div>
 <% end %>
+</div>
+
+						</div>
+					</div>
+				</div>
+</div>
+

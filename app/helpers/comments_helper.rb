@@ -4,7 +4,7 @@ module CommentsHelper
   comments.map do |message, sub_messages|
   	if can? :manage, :all
     	render(message) + content_tag(:div, nested_messages(sub_messages), :class => "nested_messages")
-    elsif message && message.oculto 
+    elsif message && !message.oculto 
     	render(message) + content_tag(:div, nested_messages(sub_messages), :class => "nested_messages")
     end
   end.join.html_safe

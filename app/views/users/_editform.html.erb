@@ -1,21 +1,23 @@
 <%= form_for @user, :validate => true do |f| %>
  
   <span class="comentario"> Puedes omitir esto si no quieres cambiar la contraseña </span>
+  <div class="hidder">
   <div class="field">
-    <%= f.label :old_password %><br />
+    <%= f.label :old_password, "Ingrese la contraseña antigua" %><br />
     <%= f.password_field :old_password %>
   </div>
   <div class="field">
-    <%= f.label :password %><br />
+    <%= f.label :password, "Contraseña" %><br />
     <%= f.password_field :password %>
   </div>
   <div class="field">
-    <%= f.label :password_confirmation %><br />
+    <%= f.label :password_confirmation, "Confirmación de contraseña" %><br />
     <%= f.password_field :password_confirmation %>
   </div>
-
+  </div>
+  
   <div class="field">
-    <%= f.label :email %><br />
+    <%= f.label :email, "Mail" %><br />
     <%= f.email_field :email %>
   </div>
   
@@ -26,14 +28,21 @@
   </div>
 
   <div class="field">
-    <%= f.label :active %><br />
+    <%= f.label :active, "Activo" %><br />
     <%= f.check_box :active %>
   </div>
 
   <% end %>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Enviar" %>
   </div>
 <% end %>
 
 
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+<script type="text/javascript">
+$('span.comentario').click(function(){
+  $('div.hidder').toggle("slow");
+});
+</script>

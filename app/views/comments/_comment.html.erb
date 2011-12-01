@@ -7,10 +7,10 @@
      			Nota del comentario: <%= comment.calification %>
    			</div>
    		   <% end %> 					
-	<h2 class="title"><%= link_to comment.title, comment %> </h2>
-	<% if comment.oculto %>
-	<p>Oculto</p>
-	<% end %>
+	<h2 class="title"><%= link_to comment.title, comment %> <span class="oculto" style="font-size: 22px;"><%= "("+comment.children.count.to_s+" comentarios)" %></span><% if comment.oculto %>
+	<span style="font-size:20px;">(Oculto)</span>
+	<% end %></h2>
+	
 		<div class="entry">
 		   <p class="meta"> <%= comment.commented_on %>. Posteado por <%= comment.user.username %> 
 		     </p>
@@ -30,14 +30,14 @@
 <% if comment.archivo && comment.archivo.size && comment.archivo.size > 0 %>
 	  <%= link_to "Ver archivo adjunto", comment.archivo.url %>
 <% end %>
-  <div id="label2">
+  <div id="label2" style="padding-bottom:5px;">
   <% if current_user %>
     <%= link_to "Responder", new_comment_path(:parent_id => comment) %> 
     <% if can? :destroy, comment %> 
-      <%= link_to "Destruir", comment, :confirm => "Esta seguro?", :method => :delete %>
+      <%= link_to "Destruir", destruir_path(comment), :confirm => "Seguro?", :method => :delete %>
     <% end %>
     <% if can? :manage, :all %> 
-      <%= link_to "Ocultar", ocultar_path(comment.id) %>
+      <%= link_to (comment.oculto ? "Desocultar":"Ocultar"), ocultar_path(comment.id) %>
     <% end %>
   <% end %>    
   </div>

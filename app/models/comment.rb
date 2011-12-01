@@ -18,7 +18,7 @@ class Comment < ActiveRecord::Base
  	elsif self.created_at > 5.minutes.ago
  		"Comentado hace menos de 5 minutos"	
 	else
-		self.created_at.strftime("%d %m %Y") 
+		self.created_at.strftime("%d/%m/%Y") 
 	end
   end
   
@@ -38,10 +38,14 @@ class Comment < ActiveRecord::Base
  				counter += 1
  			end
  		end
+ 		
  		if counter > 0
  			self.my_grade = sum/counter
- 			self.save
+ 		else
+ 			self.my_grade = nil
  		end
+ 		self.save
+ 		
  	end
  	
 	def lleva_calificacion

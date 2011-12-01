@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
-   helper_method :current_user, :current_user_name, :authorize_post, :profesor?
+   helper_method :current_user, :current_user_name, :authorize_post, :profesor?, :get_temas
    helper_method :admin, :admin?, :authorize, :update_time
   rescue_from CanCan::AccessDenied do |exception|
     redirect_to root_url, :alert => "No tienes los permisos adecuados"
@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
   	##else 
   	  ##	@current_user = nil
   	  ##	end_session
-  	  ##	redirect_to login_path, :notice => 'Unauthorized access'
+  	  ##	redirect_to login_path, :notice => 'Sin permisos'
   	 #end
   end
   
@@ -92,5 +92,9 @@ class ApplicationController < ActionController::Base
   def update_time
   	session[:last_use]=Time.now
   end	
+  
+  def get_temas
+  	@temas = Comment.scoped.where(:ancestry => nil, :oculto => false)
+  end
   
 end

@@ -16,7 +16,7 @@ body {
 h1, h2, h3 {
 	margin: 0px;
 	padding: 0px;
-	text-transform: lowercase;
+	text-transform: capitalize;
 	font-family: Arial, Helvetica, sans-serif;
 	font-weight: normal;
 	color: #534616;
@@ -86,6 +86,12 @@ a:hover {
 	font-size: 4.6em;
 	color: #FFFFFF;
 }
+#logo h1:hover {
+	float: left;
+	text-transform: capitalize;
+	font-size: 4.2em;
+
+}
 
 #logo p {
 	float: left;
@@ -94,6 +100,10 @@ a:hover {
 	font: normal 14px Georgia, "Times New Roman", Times, serif;
 	font-style: italic;
 } 
+#logo p:hover{
+	font-size: 18px;
+}
+
 
 #logo a {
 	border: none;
@@ -238,6 +248,11 @@ a:hover {
 	color: #54040D;
 	padding-top: 1px
 }
+#menu ul li:hover, #menu ul li a:hover, ul li ul.topics li:hover{
+	font-size:18px;
+}
+#menu ul li{font-size: 18px;font-style: italic;}
+#menu ul li a{font-size:12px;font-style:none;}
 
 .post .meta {
 	padding-bottom: 5px;
@@ -497,7 +512,7 @@ span.comentario{
 .nested_messages {
   margin-left: 40px;
   margin-top: 5px;
-  
+  border-left:dashed 1px white;
 }
 .nested_messages .nested_messages .nested_messages .nested_messages {
   margin-left: 0;

@@ -51,16 +51,16 @@ class SessionsController < ApplicationController
 	  			if @next_time 			
 	  				text = "Try again in "+@next_time+" minutes"
 				else	
-					text = "Invalid name/mail/rut or password"
+					text = "Error en los datos entregados"
 					if @entries
-						times+=" already tried "+@entries.count+" times" 
+						times+=", ya has intentado de registar"+@entries.count+" veces" 
 					end
 	  			end
 	  			flash.now.alert = text	
 	  			render "new"
 	  		end 		
 	  	else
-	  		flash.now.alert = "Invalid name/mail/rut or password"
+	  		flash.now.alert = "Error en los datos entregados"
 	  		render "new"
 	  	end
   	end

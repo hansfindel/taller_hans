@@ -54,7 +54,7 @@ class ProfesorsController < ApplicationController
 	
     respond_to do |format|
       if @profesor.save
-        format.html { redirect_to @profesor, :notice=> 'Profesor was successfully created.' }
+        format.html { redirect_to @profesor, :notice=> 'Profesor creado' }
         format.json { render :json=> @profesor, :status=> :created, :location=> @profesor }
       else
         format.html { render :action=> "new" }
@@ -75,7 +75,7 @@ class ProfesorsController < ApplicationController
 	
     respond_to do |format|
       if @profesor.update_attributes(params[:profesor])
-        format.html { redirect_to @profesor, :notice=> 'Profesor was successfully updated.' }
+        format.html { redirect_to @profesor, :notice=> 'Profesor actualizado.' }
         format.json { head :ok }
       else
         format.html { render :action=> "edit" }

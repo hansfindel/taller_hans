@@ -84,12 +84,37 @@
 </div>
   <% end %>
 
+<% if @cursos %>
+<div class="post">
+				<div class="bg1">
+					<div class="bg2">
+						<div class="bg3">
+<h2 class="title"> Participaciones </h2>
+	<div class="entry">
+
+<ul>
+  <% @intervenciones.each do |inter| %>
+  	
+  	<li> <%= (link_to inter.title, inter) if can? :show, inter %> </li>
+  	
+  <% end %>
+</ul>
+  </div>
+						</div>
+					</div>
+				</div>
+</div>
+  <% end %>
+
+
 
 <div id="label">
 <% if can? :update, @user %>
-<%= link_to 'Editar', edit_user_path(@user) %> |
+<%= link_to 'Editar', edit_user_path(@user.username) %> |
 <% end %>
+<% if can? :manage, :all %>
 <%= link_to 'Ver usuarios', users_path %>
+<% end %>
 </div>
 
 

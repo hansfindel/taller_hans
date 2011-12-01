@@ -22,8 +22,8 @@
     <td><%= course.id %></td>
     <td><%= course.curso %></td>
     <td><%= course.agno %></td>
-    <td><%= link_to 'Show', course %>
-    <%= link_to 'Edit', edit_course_path(course) %></td>
+    <td><%= link_to 'Ver', course %>
+    <%= link_to 'Editar', edit_course_path(course) %></td>
   </tr>
 <% end %>
 </table>
@@ -35,5 +35,5 @@
 	</div>
 
 <div id="label">
-<%= link_to 'Nuev Courso', new_course_path %>
+<%= link_to 'Nuevo Courso', new_course_path %>
 </div>

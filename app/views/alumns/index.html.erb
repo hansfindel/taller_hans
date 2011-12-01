@@ -10,8 +10,8 @@
 <table>
   <tr>
     <th>id</th>
-    <th>User</th>
-    <th>Course</th>
+    <th>Alumno</th>
+    <th>Curso</th>
     <th></th>
 
   </tr>
@@ -21,8 +21,8 @@
     <td><%= alumn.id %></td>  
     <td><%= alumn.user.username %></td>
     <td><%= alumn.course.curso %></td>
-    <td><%= link_to 'Show', alumn %>
-    <%= link_to 'Edit', edit_alumn_path(alumn) %></td>
+    <td><%= link_to 'Ver', alumn %>
+    <%= link_to 'Editar', edit_alumn_path(alumn) %></td>
   </tr>
 <% end %>
 </table>

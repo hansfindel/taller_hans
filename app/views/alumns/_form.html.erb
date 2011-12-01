@@ -14,14 +14,14 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :user_id %><br />
+    <%= f.label :user_id, "Alumno" %><br />
     <%= collection_select(:alumn, :user_id, @alumns, :id, :username) %>
   </div>
   <div class="field">
-    <%= f.label :course_id %><br />
+    <%= f.label :course_id, "Curso" %><br />
     <%= collection_select(:alumn, :course_id, @cursos, :id, :curso) %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Enviar" %>
   </div>
 <% end %>

@@ -24,10 +24,13 @@ class Ability
 			c.profesors.where(:user_id => user.id)
 		end
 		cannot [:show, :update], Comment do |c|
-			c.oculto = true
+			c.oculto == true
 		end
 		
-		can [:read, :create], [Comment, @comments]
+		can [:read, :index], [Comment, @comments] do |c|
+			c.oculto == false
+		end
+		
 		can :destroy, Comment do |comment|
 			comment.root.id = user.id
 		end 
@@ -36,24 +39,27 @@ class Ability
 	elsif type && type.type_name == 'Alumno'
 		#can :read, :all
 		can :create, User
-		can [:read, :update], [User, @user], :id => user.id
-		cannot [:read, :update, :create], [Profesor, Alumn, Course]
-		cannot [:index], User
-		#can :update,:comment if self!
 		
-		can [:read, :index], [Comment, @comments]
+		cannot [:read, :update, :create], [Profesor, Alumn, Course]
+		cannot [:index, :show], User
+		#can :update,:comment if self!
+		can [:read, :update], [User, @user], :id => user.id
 		
 		can :create, [Comment, @comment] 
-		
+		can [:read, :index], [Comment, @comments] do |c|
+			c.oculto == false
+		end
 		cannot [:show, :update], Comment do |c|
-			c.oculto = true
+			c.oculto == true
 		end
 	else 
 		can :create, User
 		cannot [:read, :update, :create], [Profesor, Alumn, Course]
-		cannot [:index], User
-		cannot [:create], [Comment]
-		can [:read, :index], [Comment, @comments]
+		cannot [:index, :show], User
+		cannot [:create, :update], [Comment]
+		can [:read, :index], [Comment, @comments] do |c|
+			c.oculto == false
+		end
 	end  	
   	
     # Define abilities for the passed in user here. For example:

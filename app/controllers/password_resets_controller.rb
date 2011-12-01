@@ -4,6 +4,7 @@ class PasswordResetsController < ApplicationController
 	
   def new
   end
+  
   def create
     user = User.find_by_email(params[:email])
     user.send_password_reset if user
@@ -23,18 +24,18 @@ class PasswordResetsController < ApplicationController
     end
     
     if @user.password_reset_sent_at < 2.hours.ago
-      redirect_to new_password_reset_path, :alert => "Password ha expirado"      
+      redirect_to new_password_reset_path, :alert => "Contrase&ntilde;a ha expirado"      
  	end
   end
 
   def update
     @user = User.find_by_password_reset_token!(params[:id])
     if @user.password_reset_sent_at < 2.hours.ago
-      redirect_to new_password_reset_path, :alert => "Password ha expirado."
+      redirect_to new_password_reset_path, :alert => "Contrase&ntilde;a ha expirado."
     elsif @user.update_attributes(params[:user])
       @user.password_reset_token = nil
       @user.save
-      redirect_to root_url, :notice => "Password cambiada."
+      redirect_to root_url, :notice => "Contrase&ntilde;a cambiada."
     else
       render :edit
     end

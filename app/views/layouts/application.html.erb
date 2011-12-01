@@ -3,11 +3,11 @@
 
 
 <head>
-  <meta name="version" content='0.1.1' />
+  <meta name="version" content='1.0.0' />
   <meta name="nombre" content='comentarios' /> 
   <meta name="contenido" content='se pueden hacer comentarios' />
   <meta http-equiv="content-type" content="text/html; charset=utf-8" />
-  <title><%= content_for?(:title) ? content_for(:title) : "TallerHans" %></title>
+  <title> TallerHans</title>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
@@ -25,9 +25,8 @@
 </div>
 
 <div id="user_nav">
-  
   <% if current_user %>
-  	<div id="logo"><%= link_to current_user_name, current_user %> | 
+  	<div id="logo"><%= link_to current_user_name, user_path(current_user.username) %> | 
   	  <%= link_to "Salir", logout_path%> 
   	</div>
   <% else %>
@@ -47,7 +46,6 @@
     
     </div>   		  
   <% end %> 
-  
   </div>
   
   </div>
@@ -55,7 +53,7 @@
   
   <div id="menu">
 		<ul>
-		    <li><%= link_to "Temas", comments_path %></li>		
+		    <li><%= link_to_unless_current "Temas", comments_path %></li>		
 		<% if current_user  %>
 			<li><%= link_to "Home", home_path %></li>
 		<% end %>
@@ -74,23 +72,16 @@
 
 
 <div id="page">
-
-		<div id="content">
-		<div data-pjax-container>
-		
 <% flash.each do |name, msg| %>
-	<%= content_tag :div, msg, :id => "#{name}" unless "#{name}".eql?("recaptcha_error") %>
+	<%= content_tag :div, msg, :id => "#{name}"%>
 <% end %>
-
+		<div id="content">
 			<%= yield %>
 		
-			<% if !current_user %>
-		 		<div id="void">
-		 		 </div>			
-			<% end %>
-		
-		</div>
-		
+		<% if !current_user %>
+		  <div id="void">
+		  </div>			
+		<% end %>
 		</div>
 		
 		<div id="sidebar">
@@ -99,40 +90,18 @@
 					<h2>Aliquam tempus</h2>
 					<p>Mauris vitae nisl nec metus placerat perdiet est. Phasellus dapibus semper consectetuer hendrerit.</p>
 				</li>
-				
-				<% if content_for?(:log) ? content_for(:log) : false %> 
+				<% if current_user %>
 				<li>
-					<h2>Categories</h2>
-					<ul>
-						<li><a href="#">Aliquam libero</a></li>
-						<li><a href="#">Consectetuer adipiscing elit</a></li>
-						<li><a href="#">Metus aliquam pellentesque</a></li>
-						<li><a href="#">Suspendisse iaculis mauris</a></li>
-						<li><a href="#">Urnanet non molestie semper</a></li>
-						<li><a href="#">Proin gravida orci porttitor</a></li>
+					<h2>Post's </h2>
+					<ul class="topics">
+						<% @topics = get_temas %>
+						<% @topics.each do |top| %>
+							<li><%= link_to (top.title), top %><%= "("+top.children.count.to_s+")" %></li>
+						<% end %>						
 					</ul>
 				</li>
-				<li>
-					<h2>Blogroll</h2>
-					<ul>
-						<li><a href="#">Aliquam libero</a></li>
-						<li><a href="#">Consectetuer adipiscing elit</a></li>
-						<li><a href="#">Metus aliquam pellentesque</a></li>
-						<li><a href="#">Suspendisse iaculis mauris</a></li>
-						<li><a href="#">Urnanet non molestie semper</a></li>
-						<li><a href="#">Proin gravida orci porttitor</a></li>
-					</ul>
-				</li>
-				<li>
-					<h2>Archives</h2>
-					<ul>
-						<li><a href="#">Aliquam libero</a></li>
-						<li><a href="#">Consectetuer adipiscing elit</a></li>
-						<li><a href="#">Proin gravida orci porttitor</a></li>
-					</ul>
-				</li>
+		
 				<% end %>
-				
 			</ul>
 		</div>
 
@@ -140,16 +109,21 @@
 
 </div>
 
-<% if !content_for?(:log) ? content_for(:log) : "true" %> 
-<% if !current_user && @footer && false %>
-<div id="footer-wrapper-fake">
+<% if current_user && @footer%>
+<div id="footer-wrapper">
 	<div id="footer" class="bottom-radius">
 		<p>Copyright (c) 2011. Derechos reservados.</p>
 		<p> Basado en <a href=" http://www.code-sucks.com/">Free CSS Templates</a></p>
-		<span> <%= image_tag "rails.png" %></span>
 	</div>
 </div>
-<% end %>
+<% elsif @footer %>
+<div id="footer-wrapper-fake" >
+	<div id="footer" class="bottom-radius">
+		<p>Copyright (c) 2011. Derechos reservados.</p> 
+		<p>Basado en <a href=" http://www.code-sucks.com/">Free CSS Templates</a></p>
+		<p><%= image_tag("rails.png") %></p>
+	</div>
+</div>
 <% end %>
 
 </body>
