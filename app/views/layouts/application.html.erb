@@ -96,7 +96,7 @@
 					<ul class="topics">
 						<% @topics = get_temas %>
 						<% @topics.each do |top| %>
-							<li><%= link_to (top.title), top %><%= "("+top.children.count.to_s+")" %></li>
+							<li><%= link_to (top.title), top %><%= "("+top.children.where(:oculto=>false).count.to_s+")" %></li>
 						<% end %>						
 					</ul>
 				</li>

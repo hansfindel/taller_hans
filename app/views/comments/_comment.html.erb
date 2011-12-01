@@ -7,7 +7,7 @@
      			Nota del comentario: <%= comment.calification %>
    			</div>
    		   <% end %> 					
-	<h2 class="title"><%= link_to comment.title, comment %> <span class="oculto" style="font-size: 22px;"><%= "("+comment.children.count.to_s+" comentarios)" %></span><% if comment.oculto %>
+	<h2 class="title"><%= link_to comment.title, comment %> <span class="oculto" style="font-size: 22px;"><%= "("+comment.children.where(:oculto=>false).count.to_s+" comentario"+((comment.children.where(:oculto=>false).count!=1)?"s":"")+")" %></span><% if comment.oculto %>
 	<span style="font-size:20px;">(Oculto)</span>
 	<% end %></h2>
 	
