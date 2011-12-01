@@ -33,7 +33,7 @@ class Comment < ActiveRecord::Base
  		sum = 0
  		counter = 0			
  		self.children.each do |c|
- 			if c.calification
+ 			if c.calification && !c.oculto
  				sum += c.calification
  				counter += 1
  			end
