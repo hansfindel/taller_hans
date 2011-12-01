@@ -64,7 +64,7 @@ class ApplicationController < ActionController::Base
   def admin
   	user = current_user
   	unless user && user.username && user.username.eql?("admin")
-  		redirect_to :root, :notice => 'Unauthorized access'
+  		redirect_to :root, :notice => 'Te faltan permisos para eso'
   		false 
   	else
   		true
@@ -82,7 +82,7 @@ class ApplicationController < ActionController::Base
  
   def authorize
   	unless session[:user_id]
-  		redirect_to :root, :notice => 'Unauthorized access'
+  		redirect_to :root, :notice => 'Sin los permisos necesarios'
   		false 
   	else
   		true
