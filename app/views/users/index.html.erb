@@ -53,9 +53,9 @@
      <% else %>
       <td> Omitido </td>
      <% end %>
-      <td><%= user.active %></td>
-     <td><%= link_to 'Show', user_path(user.username) %>
-     <%= link_to 'Edit', edit_user_path(user.username) %></td>
+      <td><%= user.active ? "Activo":"Inactivo" %></td>
+     <td><%= link_to 'Ver', user_path(user.username) %>
+     <%= link_to 'Editar', edit_user_path(user.username) %></td>
     <% end %>
     
   </tr>
