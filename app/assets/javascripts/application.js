@@ -7,6 +7,7 @@
 //
 //= require jquery
 //= require jquery_ujs
+// require pjax
 //= require rails.validations
    
 $(document).ready(function(){

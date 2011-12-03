@@ -155,7 +155,7 @@ class CommentsController < ApplicationController
 	   @comment.oculto = !@comment.oculto
 	 end
 	 @comment.save
-	 @comment.parent.mi_nota
+	 @comment.parent.mi_nota if @comment.parent
 	 @destino = @comment.root
 
     respond_to do |format|

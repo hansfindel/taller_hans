@@ -18,12 +18,16 @@ group :assets do
 end
 
 gem 'jquery-rails'
-gem 'client_side_validations'
+gem 'kaminari'
+gem 'ancestry'
+
+gem 'paperclip'
+
 
 
 gem 'bcrypt-ruby', :require => "bcrypt"
 gem 'cancan'
-# gem 'pjax_rails'
+gem 'pjax_rails'
 gem 'recaptcha', :require => "recaptcha/rails"
 
 group :production do
@@ -31,10 +35,6 @@ group :production do
   gem 'therubyracer'
 end
 
-gem 'kaminari'
-gem 'ancestry'
-
-gem 'paperclip'
 
 # Use unicorn as the web server
 # gem 'unicorn'
@@ -45,3 +45,4 @@ gem 'paperclip'
 # To use debugger
 # gem 'ruby-debug'
 
+gem 'client_side_validations'
